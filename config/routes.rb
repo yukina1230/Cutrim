@@ -10,6 +10,9 @@ Rails.application.routes.draw do
   scope module: :public do
     root "homes#top"
     get "homes/about" => "homes#about"
+    get 'users/my_page' => 'users#show', as: 'mypage'
+    get 'users/infomation/edit' => 'users#edit', as: 'edit_infomation'
+    patch 'users/infomation' => 'users#update', as: 'update_infomation'
   end
 
   namespace :admin do

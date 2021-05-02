@@ -1,0 +1,40 @@
+<h2>マイページ</h2>
+<p>登録情報</p>
+<%= link_to "編集する", edit_infomation_path(@user) %><br>
+
+<table>
+  <thead>
+    <th></th>
+    <th></th>
+  </thead>
+  <tbody>
+    <tr>
+      <td>名前</td>
+      <td><%= @user.family_name %><%= @user.first_name %></td>
+    </tr>
+    <tr>
+      <td>フリガナ</td>
+      <td><%= @user.family_name_kana %><%= @user.first_name_kana %></td>
+    </tr>
+    <tr>
+      <td>ニックネーム</td>
+      <td><%= @user.nickname %></td>
+    </tr>
+    <tr>
+      <td>電話番号</td>
+      <td><%= @user.phone %></td>
+    </tr>
+    <tr>
+      <td>メールアドレス</td>
+      <td><%= @user.email %></td>
+    </tr>
+    <tr>
+      <td>住所</td>
+      <td>
+        <%= @user.postal_code %><br>
+        <%= @user.prefecture %><%= @user.address_city %><br>
+        <%= @user.address_building %>
+      </td>
+    </tr>
+  </tbody>
+</table>

@@ -10,6 +10,33 @@
   </head>
 
   <body>
-    <%= yield %>
+    <header>
+      <% if user_signed_in? %>
+        <li><%= link_to "MyPage", mypage_path(current_user) %></li>
+        <li><%= link_to "Salon" %></li>
+        <li><%= link_to "post_image" %></li>
+        <li><%= link_to "favorite" %></li>
+        <li><%= link_to "Reserve" %></li>
+        <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+      <% elsif salon_user_signed_in? %>
+        <li><%= link_to "MyPage" %></li>
+        <li><%= link_to "Menu" %></li>
+        <li><%= link_to "post_image" %></li>
+        <li><%= link_to "Reserve" %></li>
+        <li><%= link_to "ログアウト", destroy_salon_user_session_path, method: :delete %></li>
+      <% else %>
+        <li><%= link_to "About", homes_about_path %></li>
+        <li><%= link_to "Salon" %></li>
+        <li><%= link_to "post_image" %></li>
+        <li><%= link_to "新規登録", new_user_registration_path %></li>
+        <li><%= link_to "ログイン", new_user_session_path %></li>
+      <% end %>
+    </header>
+    <body>
+      <%= yield %>
+    </body>
+    <footer>
+      ©︎Cutrim
+    </footer>
   </body>
 </html>
