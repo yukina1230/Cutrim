@@ -1,0 +1,22 @@
+<div>
+  <div class="salon_image">
+    <%= attachment_image_tag @salon_user, :salon_image %>
+    <div>
+      <%= @salon_user.salon_name %>
+    </div>
+  </div>
+</div>
+
+<div>
+  SALON INFO
+  <p>サロン詳細</p>
+  <%= @salon_user.introduction %>
+  <p>住所</p>
+  〠<%= @salon_user.postal_code %><br>
+  <%= @salon_user.prefecture %><%= @salon_user.address_city %><%= @salon_user.address_building %>
+  <p>電話番号</p>
+  <%= @salon_user.phone %>
+  <p>営業日</p>
+  <%= @salon_user.business_day %><br>
+  <%= @salon_user.business_start_time %>~<%= @salon_user.business_end_time %>
+</div>

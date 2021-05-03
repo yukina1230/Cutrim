@@ -28,7 +28,8 @@ ActiveRecord::Schema.define(version: 2021_05_02_052659) do
     t.string "phone"
     t.text "introduction"
     t.string "business_day"
-    t.time "business_time"
+    t.time "business_start_time"
+    t.time "business_end_time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_salon_users_on_email", unique: true

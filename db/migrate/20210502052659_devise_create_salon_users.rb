@@ -42,7 +42,8 @@ class DeviseCreateSalonUsers < ActiveRecord::Migration[5.2]
       t.string :phone
       t.text :introduction
       t.string :business_day
-      t.time :business_time
+      t.time :business_start_time
+      t.time :business_end_time
 
 
       t.timestamps null: false

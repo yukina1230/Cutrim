@@ -1,0 +1,50 @@
+<h2><%= @salon_user.salon_name %>様マイページ</h2>
+<p>登録情報</p>
+<%= link_to "編集する", admin_salon_users_edit_infomation_path(@salon_user) %><br>
+
+<table>
+  <thead>
+    <th></th>
+    <th></th>
+  </thead>
+  <tbody>
+    <tr>
+      <td>サロン名</td>
+      <td><%= @salon_user.salon_name %></td>
+    </tr>
+    <tr>
+      <td>住所</td>
+      <td>
+        <%= @salon_user.postal_code %><br>
+        <%= @salon_user.prefecture %><%= @salon_user.address_city %><br>
+        <%= @salon_user.address_building %>
+      </td>
+    </tr>
+    <tr>
+      <td>電話番号</td>
+      <td><%= @salon_user.phone %></td>
+    </tr>
+    <tr>
+      <td>サロンイメージ画像</td>
+      <td><%= attachment_image_tag @salon_user, :salon_image %></td>
+    </tr>
+    <tr>
+      <td>紹介文</td>
+      <td><%= @salon_user.introduction %></td>
+    </tr>
+    <tr>
+      <td>営業日</td>
+      <td><%= @salon_user.business_day %></td>
+    </tr>
+    <tr>
+      <td>営業時間</td>
+      <td><%= @salon_user.business_start_time %><%= @salon_user.business_end_time %></td>
+    </tr>
+    <tr>
+      <td>メールアドレス</td>
+      <td><%= @salon_user.email %></td>
+    </tr>
+
+  </tbody>
+</table>
+
