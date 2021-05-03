@@ -5,4 +5,5 @@ class SalonUser < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   attachment :salon_image
+  has_many :menus, dependent: :destroy
 end

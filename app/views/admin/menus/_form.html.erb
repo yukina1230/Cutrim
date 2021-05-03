@@ -1,0 +1,10 @@
+<h2>メニュー登録</h2>
+<%= form_with model: menu, url:admin_menus_path, local:true do |f| %>
+  <h4>メニュー名</h4>
+  <%= f.text_field :name %>
+  <h4>メニュー説明</h4>
+  <%= f.text_area :caption %>
+  <h4>金額</h4>
+  <%= f.text_field :amount %>円（税込）
+  <%= f.submit 'メニューを追加' %>
+<% end %>
