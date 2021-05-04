@@ -1,0 +1,9 @@
+<% @posts.each do |post| %>
+  <%= link_to post_path(post) do %>
+    <% post.post_images.each do |image| %><br>
+      <%= attachment_image_tag image, :image, :fill, 200, 200 %>
+    <% end %>
+  <% end %>
+  <%= @salon_user.salon_name %>
+  犬種：<%= post.dog_breed %>
+<% end %>
