@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_04_023045) do
+ActiveRecord::Schema.define(version: 2021_05_04_073846) do
 
   create_table "menus", force: :cascade do |t|
     t.string "name"
@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 2021_05_04_023045) do
     t.integer "amount"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "salon_user_id"
   end
 
   create_table "post_images", force: :cascade do |t|
@@ -41,7 +42,6 @@ ActiveRecord::Schema.define(version: 2021_05_04_023045) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer "menu_id"
     t.string "salon_name"
     t.string "salon_image_id"
     t.string "postal_code"
