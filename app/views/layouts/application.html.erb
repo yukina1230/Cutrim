@@ -15,7 +15,7 @@
         <p>Welcome,<%= current_user.family_name %>さん☺︎</p>
         <li><%= link_to "MyPage", mypage_path %></li>
         <li><%= link_to "Salon", salon_users_path %></li>
-        <li><%= link_to "post_image", posts_path %></li>
+        <li><%= link_to "📸", posts_path %></li>
         <li><%= link_to "favorite" %></li>
         <li><%= link_to "Reserve" %></li>
         <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
@@ -28,7 +28,7 @@
       <% else %>
         <li><%= link_to "About", homes_about_path %></li>
         <li><%= link_to "Salon", salon_users_path %></li>
-        <li><%= link_to "post_image", posts_path %></li>
+        <li><%= link_to "📸", posts_path %></li>
         <li><%= link_to "新規登録", new_user_registration_path %></li>
         <li><%= link_to "ログイン", new_user_session_path %></li>
       <% end %>

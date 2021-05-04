@@ -2,5 +2,6 @@
 <% @post.post_images.each do |image| %><br>
   <%= attachment_image_tag image, :image, :fill, 200, 200 %>
 <% end %>
+<%= @post.created_at.strftime('%Y/%m/%d') %>
 犬種：<%= @post.dog_breed %>
 説明：<%= @post.caption %>
