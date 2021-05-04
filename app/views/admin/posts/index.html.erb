@@ -1,0 +1,10 @@
+<%= link_to '📸+', new_admin_post_path %>
+<% @posts.each do |post| %>
+  <% post.post_images.each do |image| %><br>
+    <%= attachment_image_tag image, :image, :fill, 200, 200 %>
+  <% end %>
+  犬種：<%= post.dog_breed %>
+  説明：<%= post.caption %>
+  <%= link_to '編集', edit_admin_post_path(post) %>
+  <%= link_to '削除', admin_posts_path(post), method: :delete, "data-confirm" => "本当に削除しますか？" %>
+<% end %>

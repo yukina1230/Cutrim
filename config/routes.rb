@@ -27,7 +27,7 @@ Rails.application.routes.draw do
     get 'salon_users/infomation/edit' => 'salon_users#edit', as: 'salon_users_edit_infomation'
     patch 'salon_users/infomation' => 'salon_users#update', as: 'salon_users_update_infomation'
     resources :menus, only: [:index, :create, :edit, :update, :destroy]
-    resources :post_images, only: [:new, :create, :index, :edit, :update, :destroy]
+    resources :posts, except: [:show]
   end
 
 end

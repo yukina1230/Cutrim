@@ -1,0 +1,31 @@
+<%= form_with model: @post, url:admin_posts_path, local:true do |f| %>
+  <table>
+    <thead>
+      <th></th>
+      <th></th>
+    </thead>
+    <tbody>
+      <tr>
+        <td>画像</td>
+        <td>
+          <%= f.attachment_field :post_images_images, multiple: true %>
+          <p>
+            画像を複数アップロードする場合は、<br>
+            「ファイル選択」を選択後、<br>
+             shift + クリック　または　ctrl + クリックで画像を選択し、<br>
+            アップロードしてください。
+          </p>
+        </td>
+      </tr>
+      <tr>
+        <td>犬種</td>
+        <td><%= f.text_field :dog_breed %></td>
+      </tr>
+      <tr>
+        <td>説明</td>
+        <td><%= f.text_area :caption %></td>
+      </tr>
+    </tbody>
+  </table>
+  <%= f.submit '投稿する' %>
+<% end %>
