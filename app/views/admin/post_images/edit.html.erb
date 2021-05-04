@@ -1,0 +1,24 @@
+<table>
+  <%= form_with model: @post_image, url:admin_post_image_path(@post_image), local:true do |f| %>
+  <thead>
+      <th></th>
+      <th></th>
+  </thead>
+  <tbody>
+      <tr>
+          <td>画像</td>
+          <td><%= f.attachment_field :post_image %></td>
+      </tr>
+      <tr>
+          <td>犬種</td>
+          <td><%= f.text_field :dog_breed %></td>
+      </tr>
+      <tr>
+          <td>説明</td>
+          <td><%= f.text_area :description %></td>
+      </tr>
+  </tbody>
+</table>
+<%= f.submit '変更を保存' %>
+<% end %>
+

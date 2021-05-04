@@ -22,7 +22,7 @@
       <% elsif salon_user_signed_in? %>
         <li><%= link_to "MyPage", admin_salon_users_mypage_path %></li>
         <li><%= link_to "Menu", admin_menus_path %></li>
-        <li><%= link_to "post_image" %></li>
+        <li><%= link_to "post_image", admin_post_images_path %></li>
         <li><%= link_to "Reserve" %></li>
         <li><%= link_to "ログアウト", destroy_salon_user_session_path, method: :delete %></li>
       <% else %>

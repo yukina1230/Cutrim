@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  namespace :admin do
+    get 'post_images/new'
+    get 'post_images/index'
+    get 'post_images/edit'
+  end
   devise_for :salon_users, controllers: {
     sessions: 'salon_users/sessions',
     registrations: 'salon_users/registrations',
@@ -22,6 +27,7 @@ Rails.application.routes.draw do
     get 'salon_users/infomation/edit' => 'salon_users#edit', as: 'salon_users_edit_infomation'
     patch 'salon_users/infomation' => 'salon_users#update', as: 'salon_users_update_infomation'
     resources :menus, only: [:index, :create, :edit, :update, :destroy]
+    resources :post_images, only: [:new, :create, :index, :edit, :update, :destroy]
   end
 
 end
