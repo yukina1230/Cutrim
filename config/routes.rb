@@ -14,7 +14,9 @@ Rails.application.routes.draw do
     get 'users/infomation/edit' => 'users#edit', as: 'edit_infomation'
     patch 'users/infomation' => 'users#update', as: 'update_infomation'
     resources :salon_users, only: [:index, :show]
-    resources :posts, only: [:index, :show]
+    resources :posts, only: [:index, :show] do
+      resource :favorites, only: [:create, :destroy]
+    end
   end
 
   namespace :admin do
