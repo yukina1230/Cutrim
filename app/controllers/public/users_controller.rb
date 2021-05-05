@@ -18,6 +18,11 @@ class Public::UsersController < ApplicationController
     end
   end
 
+  def favorites
+    favorites = Favorite.where(user_id: current_user.id).pluck(:post_id)
+    @favorite_list = Post.find(favorites)
+  end
+
   private
 
   def user_params

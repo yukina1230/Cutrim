@@ -1,0 +1,14 @@
+<% if @favorite_list.present? %>
+  <% @favorite_list.each do |favorite| %>
+    <%= link_to post_path(favorite) do %>
+      <% favorite.post_images.each do |image| %><br>
+        <%= attachment_image_tag image, :image, :fill, 200, 200 %>
+      <% end %>
+    <% end %>
+    <%= favorite.created_at.strftime('%Y/%m/%d') %>
+    犬種：<%= favorite.dog_breed %>
+    説明：<%= favorite.caption %>
+  <% end %>
+<% else %>
+  <p>お気に入りの投稿はまだありません。</p>
+<% end %>

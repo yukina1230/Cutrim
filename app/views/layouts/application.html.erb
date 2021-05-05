@@ -16,7 +16,7 @@
         <li><%= link_to "MyPage", mypage_path %></li>
         <li><%= link_to "Salon", salon_users_path %></li>
         <li><%= link_to "📸", posts_path %></li>
-        <li><%= link_to "favorite" %></li>
+        <li><%= link_to "favorite", users_favorites_path %></li>
         <li><%= link_to "Reserve" %></li>
         <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
       <% elsif salon_user_signed_in? %>
