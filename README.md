@@ -54,3 +54,5 @@ https://www.ac-illust.com/
 https://pixabay.com/ja/
 - designevo
 https://www.designevo.com/
+- ICOON MONO
+https://icooon-mono.com/

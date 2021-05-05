@@ -1,12 +1,13 @@
 class Admin::MenusController < ApplicationController
   def index
-    @menus = Menu.all
+    @menus = current_salon_user.menus
     @menu = Menu.new
   end
 
   def create
     @menu = Menu.new(menu_params)
-    @menu.save
+    @menu.salon_user_id = current_salon_user.id
+    @menu.save!
     redirect_to admin_menus_path, notice: 'メニューの登録が完了しました。'
 
   end
@@ -17,7 +18,7 @@ class Admin::MenusController < ApplicationController
 
   def update
     @menu = Menu.find(params[:id])
-    if @menu.update(menu_params)
+    if @menu.update!(menu_params)
       redirect_to admin_menus_path, notice: 'メニューの更新が完了しました。'
     else
       render :edit

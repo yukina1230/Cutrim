@@ -5,12 +5,13 @@ class Admin::PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
+    @post.salon_user_id = current_salon_user.id
     @post.save
     redirect_to admin_posts_path
   end
 
   def index
-    @posts = Post.all
+    @posts = current_salon_user.posts
   end
 
   def edit

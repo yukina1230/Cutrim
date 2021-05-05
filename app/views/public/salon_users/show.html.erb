@@ -8,7 +8,7 @@
 </div>
 
 <div>
-  SALON INFO
+  <h3>SALON INFO</h3>
   <p>サロン詳細</p>
   <%= @salon_user.introduction %>
   <p>住所</p>
@@ -18,5 +18,25 @@
   <%= @salon_user.phone %>
   <p>営業日</p>
   <%= @salon_user.business_day %><br>
-  <%= @salon_user.business_start_time %>~<%= @salon_user.business_end_time %>
+  <%= @salon_user.business_start_time&.strftime('%H:%M') %>~<%= @salon_user.business_end_time&.strftime('%H:%M') %>
+</div>
+
+<div>
+  <h3>📸</h3>
+  <% @salon_user.posts.each do |post| %>
+    <%= link_to post_path(post) do %>
+      <% post.post_images.each do |image| %><br>
+        <%= attachment_image_tag image, :image, :fill, 200, 200 %>
+      <<% end %>
+    <% end %>
+  <% end %>
+</div>
+
+<div>
+  <h3>MENU</h3>
+  <% @salon_user.menus.each do |menu| %>
+    <%= menu.name %>
+    <%= menu.caption %>
+    <%= menu.amount %>円（税込）
+  <% end %>
 </div>
