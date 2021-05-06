@@ -9,10 +9,10 @@ class Public::ReservationsController < ApplicationController
     @day = params[:day]
     @time = params[:time]
     @start_time = DateTime.parse(@day + " " + @time + " " + "JST")
-    #@menu = SalonUser.menus.where(menu_id:)
+    @salon_user = SalonUser.find_by(params[:id])
     message = Reservation.check_reservation_day(@day.to_date)
     if !! message
-      redirect_to @reservation, flash: {alert: message}
+      redirect_to salon_user_reservations_path, flash: {alert: message}
     end
  end
 
