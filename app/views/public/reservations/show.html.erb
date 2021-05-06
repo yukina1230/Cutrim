@@ -37,7 +37,11 @@
           </tr>
           <tr>
             <td>イメージ画像</td>
-            <td></td>
+            <td>
+              <% @reservation.reservation_images.each do |image| %>
+                <%= attachment_image_tag image, :image, :fill, 200, 200 %>
+              <% end %>
+            </td>
           </tr>
           <tr>
             <td>要望</td>
@@ -73,7 +77,7 @@
     </div>
     <div class="col">
       <%= link_to '予約一覧へ' %>
-      <%= link_to '予約をキャンセル' %>
+      <%= link_to '予約をキャンセル', salon_user_reservation_path(@reservation), method: :delete, "data-confirm" => "本当にキャンセルしますか？" %>
     </div>
   </div>
 </div>

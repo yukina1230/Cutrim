@@ -1,6 +1,8 @@
 class Reservation < ApplicationRecord
   belongs_to :user
   belongs_to :salon_user
+  has_many :reservation_images, dependent: :destroy
+  accepts_attachments_for :reservation_images, attachment: :image
 
   enum dog_gender: { 'オス': 0, 'メス': 1 }
 

@@ -1,0 +1,24 @@
+<h1>現在の予約</h1>
+<% if @reservations.blank? %>
+  <p>予約はありません。</p>
+<% else %>
+  <% @reservations.each do |reservation| %>
+    <%= reservation.salon_user.salon_image %>
+    <%= reservation.salon_user.salon_name %>
+    <%= reservation.day %>
+    <%= reservation.time %>
+    <%= link_to '詳細', salon_user_reservation_path(reservation) %>
+  <% end %>
+<% end %>
+
+<h1>過去の予約</h1>
+<% if @visit_historys.blank? %>
+  <p>予約履歴はありません。</p>
+<% else %>
+  <% @visit_historys.each do |visit_history| %>
+    <%= visit_history.salon_user.salon_image %>
+    <%= visit_history.salon_user.salon_name %>
+    <%= visit_history.day %>
+    <%= visit_history.time %>
+  <% end %>
+<% end %>

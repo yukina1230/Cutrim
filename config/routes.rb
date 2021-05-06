@@ -20,6 +20,7 @@ Rails.application.routes.draw do
       resource :favorites, only: [:create, :destroy]
     end
     get 'users/favorites' => 'users#favorites'
+    get 'users/reservations' => 'users#reservations'
   end
 
   namespace :admin do

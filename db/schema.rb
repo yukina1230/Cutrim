@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_05_232315) do
+ActiveRecord::Schema.define(version: 2021_05_06_071307) do
 
   create_table "favorites", force: :cascade do |t|
     t.integer "user_id"
@@ -39,6 +39,13 @@ ActiveRecord::Schema.define(version: 2021_05_05_232315) do
     t.integer "salon_user_id"
     t.string "dog_breed"
     t.text "caption"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "reservation_images", force: :cascade do |t|
+    t.integer "reservation_id"
+    t.string "image_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

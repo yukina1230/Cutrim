@@ -42,8 +42,14 @@
           <%= f.select :menu, options_from_collection_for_select(@salon_user.menus, :id, :name), class: 'form-control', prompt: "メニューを選択してください" %>
         </div>
         <div class="image form-group">
-          <%= f.label :image, 'イメージ画像' %>
-
+          <%= f.label :image, 'イメージ画像' %><br>
+          <%= f.attachment_field :reservation_images_images, multiple: true %>
+          <p>
+            ※画像を複数アップロードする場合は、<br>
+            「ファイル選択」を選択後、<br>
+             shift + クリック　または　ctrl + クリックで画像を選択し、<br>
+            アップロードしてください。
+          </p>
         </div>
         <div class="request form-group">
           <%= f.label :request, '要望' %>

@@ -6,6 +6,7 @@ class Public::ReservationsController < ApplicationController
 
  def new
     @reservation = Reservation.new
+    @reservation.reservation_images.build
     @day = params[:day]
     @time = params[:time]
     @start_time = DateTime.parse(@day + " " + @time + " " + "JST")
@@ -17,9 +18,9 @@ class Public::ReservationsController < ApplicationController
  end
 
  def create
-   @reservation = Reservation.new(reservation_params)
+   @reservation = current_user.reservations.new(reservation_params)
    if @reservation.save
-     redirect_to salon_user_reservation_path(@reservation), flash[:success] = "予約が完了しました。"
+     redirect_to users_reservations_path, flash[:success] = "予約が完了しました。"
    else
      render :new
    end
@@ -41,7 +42,7 @@ class Public::ReservationsController < ApplicationController
  private
 
  def reservation_params
-   params.require(:reservation).permit(:user_id, :salon_user_id, :dog_breed, :dog_name, :dog_gender, :dog_birth, :day, :time, :request, :start_time)
+   params.require(:reservation).permit(:user_id, :salon_user_id, :dog_breed, :dog_name, :dog_gender, :dog_birth, :day, :time, :menu, :request, :start_time, reservation_images_images: []).merge(:)
  end
 
 end
