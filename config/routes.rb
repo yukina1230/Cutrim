@@ -13,7 +13,9 @@ Rails.application.routes.draw do
     get 'users/my_page' => 'users#show', as: 'mypage'
     get 'users/infomation/edit' => 'users#edit', as: 'edit_infomation'
     patch 'users/infomation' => 'users#update', as: 'update_infomation'
-    resources :salon_users, only: [:index, :show]
+    resources :salon_users, only: [:index, :show] do
+      resources :reservations, only: [:index, :new, :show, :destroy]
+    end
     resources :posts, only: [:index, :show] do
       resource :favorites, only: [:create, :destroy]
     end

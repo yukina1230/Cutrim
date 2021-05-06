@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_04_080834) do
+ActiveRecord::Schema.define(version: 2021_05_05_232315) do
 
   create_table "favorites", force: :cascade do |t|
     t.integer "user_id"
@@ -41,6 +41,24 @@ ActiveRecord::Schema.define(version: 2021_05_04_080834) do
     t.text "caption"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "reservations", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "salon_user_id"
+    t.string "dog_breed"
+    t.string "dog_name"
+    t.integer "dog_gender"
+    t.date "dog_birth"
+    t.string "menu"
+    t.date "day"
+    t.string "time"
+    t.text "request"
+    t.datetime "start_time"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["salon_user_id"], name: "index_reservations_on_salon_user_id"
+    t.index ["user_id"], name: "index_reservations_on_user_id"
   end
 
   create_table "salon_users", force: :cascade do |t|

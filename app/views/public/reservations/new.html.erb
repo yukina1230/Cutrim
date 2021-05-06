@@ -1,0 +1,62 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <h1>Reserve</h1>
+    </div>
+    <div class="col-5">
+      <%= form_with model: @reservation, local:true do |f| %>
+        <div class="day form-group">
+          <%= f.label :day, '予約日' %>
+          <%= f.text_field :day, class: 'form-control', value: @day, readonly: true %>
+        </div>
+        <div class="time form-group">
+          <%= f.label :time, '予約時間' %>
+          <%= f.text_field :time, class: 'form-control', value: @time, readonly: true %>
+        </div>
+        <div class="name form-group">
+          <%= f.label :name, 'ご予約者様' %><br>
+          <%= f.text_field :time, class: 'form-control', value: current_user.family_name + current_user.first_name, readonly: true %>
+        </div>
+        <div class="phone form-group">
+          <%= f.label :phone, '電話番号' %>
+          <%= f.text_field :time, class: 'form-control', value: current_user.phone, readonly: true %>
+        </div>
+        <div class="dog_name form-group">
+          <%= f.label :dog_name, 'ペットの名前' %>
+          <%= f.text_field :dog_name, class: 'form-control' %>
+        </div>
+        <div class="dog_gender form-group">
+          <%= f.label :dog_gender, 'ペットの性別' %>
+          <%= f.select :dog_gender, Reservation.dog_genders.keys, {}, class: 'form-control' %>
+        </div>
+        <div class="dog_birth form-group">
+          <%= f.label :dog_birth, 'ペットの誕生日' %><br>
+          <%= f.date_field :dog_birth , class: 'form-control'%>
+        </div>
+        <div class="dog_breed form-group">
+          <%= f.label :dog_breed, '犬種' %>
+          <%= f.text_field :dog_breed, class: 'form-control' %>
+        </div>
+        <div class="menu form-group">
+          <%= f.label :menu, 'メニュー' %>
+          
+        </div>
+        <div class="image form-group">
+          <%= f.label :image, 'イメージ画像' %>
+          
+        </div>
+        <div class="request form-group">
+          <%= f.label :request, '要望' %>
+          <%= f.text_area :request, class: 'form-control' %>
+        </div>
+        <%= f.hidden_field :user_id, value: current_user.id %>
+        <%= f.hidden_field :start_time, value: @start_time %>
+        <%= f.hidden_field :salon_user_id, value: @salon_user %>
+        <div class="submit">
+        <%= f.submit '予約する' %>
+        </div>
+      <% end %>
+    </div>
+    <%= link_to '戻る', salon_user_reservations_path %>
+  </div>
+</div>

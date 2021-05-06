@@ -5,7 +5,5 @@ class Public::SalonUsersController < ApplicationController
 
   def show
     @salon_user = SalonUser.find(params[:id])
-    #@post = Post.where(post_id: @salon_user.post.id)
-    #@menus = Menu.pluck(:id, :name, :caption, :amount)
   end
 end

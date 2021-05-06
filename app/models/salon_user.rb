@@ -7,4 +7,5 @@ class SalonUser < ApplicationRecord
   attachment :salon_image
   has_many :menus, dependent: :destroy
   has_many :posts, dependent: :destroy
+  has_many :reservations, dependent: :destroy
 end
