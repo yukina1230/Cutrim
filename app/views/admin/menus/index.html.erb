@@ -15,8 +15,8 @@
         金額：<%= menu.amount %>円（税込）
       </td>
       <td>
-        <%= link_to '編集', edit_admin_menu_path(menu) %>
-        <%= link_to '削除', admin_menu_path(menu), method: :delete, "data-confirm" => "本当に削除しますか？" %>
+        <%= link_to '編集', edit_admin_menu_path(menu), class: "btn btn-info" %>
+        <%= link_to '削除', admin_menu_path(menu), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn btn-danger" %>
       </td>
     </tr>
   </tbody>

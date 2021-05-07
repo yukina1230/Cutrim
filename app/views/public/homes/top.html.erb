@@ -14,10 +14,13 @@
   <p>
     お近くのサロンを探しましょう。
   </p>
-  <%= link_to "SALOM" %>
+  <%= link_to "SALON", salon_users_path %>
 </div>
 <div class="main-post">
   <h2>NEW POST</h2>
-  <%= link_to "VIEW MORE>" %>
+  <% @post_images.first(12).each do |image| %>
+    <%= attachment_image_tag image, :image, :fill, 100, 100, fallback: "no_image.png",size:'100x100' %>
+  <% end %>
+  <%= link_to "VIEW MORE>", posts_path %>
 </div>
 

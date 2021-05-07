@@ -10,7 +10,7 @@ class Public::ReservationsController < ApplicationController
     @day = params[:day]
     @time = params[:time]
     @start_time = DateTime.parse(@day + " " + @time + " " + "JST")
-    @salon_user = SalonUser.find_by(params[:id])
+    @salon_user = SalonUser.find(params[:salon_user_id])
     message = Reservation.check_reservation_day(@day.to_date)
     if !! message
       redirect_to salon_user_reservations_path, flash: {alert: message}
@@ -42,7 +42,7 @@ class Public::ReservationsController < ApplicationController
  private
 
  def reservation_params
-   params.require(:reservation).permit(:user_id, :salon_user_id, :dog_breed, :dog_name, :dog_gender, :dog_birth, :day, :time, :menu, :request, :start_time, reservation_images_images: []).merge(:)
+   params.require(:reservation).permit(:user_id, :salon_user_id, :dog_breed, :dog_name, :dog_gender, :dog_birth, :day, :time, :menu, :request, :start_time, reservation_images_images: [])
  end
 
 end
