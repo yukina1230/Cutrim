@@ -11,33 +11,49 @@
 
   <body>
     <header>
-      <% if user_signed_in? %>
-        <p>Welcome,<%= current_user.family_name %>さん☺︎</p>
-        <li><%= link_to "MyPage", mypage_path %></li>
-        <li><%= link_to "Salon", salon_users_path %></li>
-        <li><%= link_to "📸", posts_path %></li>
-        <li><%= link_to "favorite", users_favorites_path %></li>
-        <li><%= link_to "Reserve" %></li>
-        <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
-      <% elsif salon_user_signed_in? %>
-        <li><%= link_to "MyPage", admin_salon_users_mypage_path %></li>
-        <li><%= link_to "Menu", admin_menus_path %></li>
-        <li><%= link_to "📸", admin_posts_path %></li>
-        <li><%= link_to "Reserve" %></li>
-        <li><%= link_to "ログアウト", destroy_salon_user_session_path, method: :delete %></li>
-      <% else %>
-        <li><%= link_to "About", homes_about_path %></li>
-        <li><%= link_to "Salon", salon_users_path %></li>
-        <li><%= link_to "📸", posts_path %></li>
-        <li><%= link_to "新規登録", new_user_registration_path %></li>
-        <li><%= link_to "ログイン", new_user_session_path %></li>
-      <% end %>
+      <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container">
+          <a class="navbar-brand" href="/"><%= image_tag('logo.jpg') %></a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav ml-auto">
+          　<% if user_signed_in? %>
+              <p>Welcome,<%= current_user.family_name %>さん☺︎</p>
+              <li class="nav-item"><%= link_to "MyPage", mypage_path, class: 'nav-link text-dark' %></li>
+              <li class="nav-item"><%= link_to "Salon", salon_users_path, class: 'nav-link text-dark' %></li>
+              <li class="nav-item"><%= link_to "📸", posts_path, class: 'nav-link text-dark' %></li>
+              <li class="nav-item"><%= link_to "favorite", users_favorites_path, class: 'nav-link text-dark' %></li>
+              <li class="nav-item"><%= link_to "Reserve", class: 'nav-link text-dark' %></li>
+              <li class="nav-item"><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'nav-link text-dark' %></li>
+            <% elsif salon_user_signed_in? %>
+              <li class="nav-item"><%= link_to "MyPage", admin_salon_users_mypage_path, class: 'nav-link text-dark' %></li>
+              <li class="nav-item"><%= link_to "Menu", admin_menus_path, class: 'nav-link text-dark' %></li>
+              <li class="nav-item"><%= link_to "📸", admin_posts_path, class: 'nav-link text-dark' %></li>
+              <li class="nav-item"><%= link_to "Reserve", class: 'nav-link text-dark' %></li>
+              <li class="nav-item"><%= link_to "ログアウト", destroy_salon_user_session_path, method: :delete, class: 'nav-link text-dark' %></li>
+            <% else %>
+              <li class="nav-item"><%= link_to "About", homes_about_path, class: 'nav-link text-dark' %></li>
+              <li class="nav-item"><%= link_to "Salon", salon_users_path, class: 'nav-link text-dark' %></li>
+              <li class="nav-item"><%= link_to "📸", posts_path, class: 'nav-link text-dark' %></li>
+              <li class="nav-item"><%= link_to "新規登録", new_user_registration_path, class: 'nav-link text-dark' %></li>
+              <li class="nav-item"><%= link_to "ログイン", new_user_session_path, class: 'nav-link text-dark' %></li>
+            <% end %>
+          </ul>
+          </div>
+        </div>
+      </nav>
     </header>
     <main>
       <%= yield %>
     </main>
     <footer>
-      ©︎Cutrim
+      <div class="row">
+        <div class="col-4 offset-4">
+          <p class="text-center">©︎Cutrim</p>
+        </div>
+      </div>
     </footer>
   </body>
 </html>

@@ -18,6 +18,10 @@
  @import 'font-awesome-sprockets';
  @import 'font-awesome';
 
+ body {
+	color: #73646A;
+}
+
  .btn-info {
   background-color: #98D4CC;
   border-color: #98D4CC;
@@ -37,10 +41,14 @@
   background-color: #CFB1B5;
   border-color: #CFB1B5;
  }
- 
+
  .btn-secondary {
   background-color: #c19aa0;
   border-color: #c19aa0;
+ }
+
+ .text-dark {
+  color: #73646A !important;
  }
 
  .main-image {
@@ -52,3 +60,46 @@
   text-align: center;
   line-height: 200px;
  }
+
+header {
+ width: 100%;
+ height: 120px;
+}
+
+.main-about-image {
+ background-image: url(img/cut_shihtzu3.jpg);
+ width: 600px;
+ height: 400px;
+ background-position: center;
+ background-size: cover;
+}
+
+.main-salon-image {
+ background-image: url(img/cut_shihtzu.jpg);
+ width: 600px;
+ height: 400px;
+ background-position: center;
+ background-size: cover;
+}
+
+.about-left-image {
+ background-image: url(img/cut_shihtzu2.jpg);
+ width: 400px;
+ height: 500px;
+ background-position: bottom;
+ background-size: cover;
+}
+
+.about-right-image {
+ background-image: url(img/cut.jpg);
+ width: 400px;
+ height: 500px;
+ background-position: center;
+ background-size: cover;
+}
+
+footer {
+ width: 100%;
+ height: 150px;
+ line-height: 100px;
+}

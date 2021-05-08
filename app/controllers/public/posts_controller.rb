@@ -8,4 +8,10 @@ class Public::PostsController < ApplicationController
     @post = Post.find(params[:id])
     @salon_user = SalonUser.find_by(params[:salon_name])
   end
+
+  def search
+    @posts = Post.search(params[:search])
+    @salon_user = SalonUser.find_by(params[:salon_name])
+  end
+
 end
