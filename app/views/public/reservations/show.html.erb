@@ -29,11 +29,11 @@
           </tr>
           <tr>
             <td>メニュー</td>
-            <td></td>
+            <td><%= @reservation.menu %></td>
           </tr>
           <tr>
-            <td>予約日時</td>
-            <td><%= @reservation.day %><%= @reservation.time %></td>
+            <td>来店日時</td>
+            <td><%= @reservation.day %>,<%= @reservation.time %></td>
           </tr>
           <tr>
             <td>イメージ画像</td>

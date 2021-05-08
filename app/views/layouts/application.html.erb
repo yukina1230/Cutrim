@@ -20,7 +20,7 @@
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav ml-auto">
           　<% if user_signed_in? %>
-              <p>Welcome,<%= current_user.family_name %>さん☺︎</p>
+              <p>Welcome,<%= current_user.nickname %>さん☺︎</p>
               <li class="nav-item"><%= link_to "MyPage", mypage_path, class: 'nav-link text-dark' %></li>
               <li class="nav-item"><%= link_to "Salon", salon_users_path, class: 'nav-link text-dark' %></li>
               <li class="nav-item"><%= link_to "📸", posts_path, class: 'nav-link text-dark' %></li>
@@ -31,7 +31,7 @@
               <li class="nav-item"><%= link_to "MyPage", admin_salon_users_mypage_path, class: 'nav-link text-dark' %></li>
               <li class="nav-item"><%= link_to "Menu", admin_menus_path, class: 'nav-link text-dark' %></li>
               <li class="nav-item"><%= link_to "📸", admin_posts_path, class: 'nav-link text-dark' %></li>
-              <li class="nav-item"><%= link_to "Reserve", class: 'nav-link text-dark' %></li>
+              <li class="nav-item"><%= link_to "Reserve", admin_reservations_path, class: 'nav-link text-dark' %></li>
               <li class="nav-item"><%= link_to "ログアウト", destroy_salon_user_session_path, method: :delete, class: 'nav-link text-dark' %></li>
             <% else %>
               <li class="nav-item"><%= link_to "About", homes_about_path, class: 'nav-link text-dark' %></li>

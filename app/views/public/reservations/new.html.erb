@@ -10,11 +10,11 @@
           <input class="form-control" type="text" readonly="true" value="<%= @salon_user.salon_name %>" />
         </div>
         <div class="day form-group">
-          <%= f.label :day, '予約日' %>
+          <%= f.label :day, '来店日' %>
           <%= f.text_field :day, class: 'form-control', value: @day, readonly: true %>
         </div>
         <div class="time form-group">
-          <%= f.label :time, '予約時間' %>
+          <%= f.label :time, '来店時間' %>
           <%= f.text_field :time, class: 'form-control', value: @time, readonly: true %>
         </div>
         <div class="name form-group">
@@ -47,7 +47,7 @@
         </div>
         <div class="menu form-group">
           <%= f.label :menu, 'メニュー' %><br>
-          <%= f.select :menu, options_from_collection_for_select(@salon_user.menus, :id, :name), class: 'form-control', prompt: "メニューを選択してください" %>
+          <%= f.select :menu, options_from_collection_for_select(@salon_user.menus, :name, :name), class: 'form-control', prompt: "メニューを選択してください" %>
         </div>
         <div class="image form-group">
           <%= f.label :image, 'イメージ画像' %><br>

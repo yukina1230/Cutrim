@@ -33,6 +33,7 @@ Rails.application.routes.draw do
     patch 'salon_users/infomation' => 'salon_users#update', as: 'salon_users_update_infomation'
     resources :menus, only: [:index, :create, :edit, :update, :destroy]
     resources :posts, except: [:show]
+    resources :reservations, only: [:index, :show]
   end
 
 end
