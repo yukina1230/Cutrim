@@ -20,6 +20,7 @@ class Public::ReservationsController < ApplicationController
  def create
    @reservation = current_user.reservations.new(reservation_params)
    if @reservation.save
+     flash[:success] = "予約が完了しました。"
      redirect_to users_reservations_path
    else
      @reservation.reservation_images.build
@@ -39,7 +40,8 @@ class Public::ReservationsController < ApplicationController
  def destroy
    @reservation = Reservation.find(params[:id])
    if @reservation.destroy
-      redirect_to salon_user_reservations_path, flash[:success] = "予約を削除しました。"
+      flash[:success] = "予約を削除しました。"
+      redirect_to salon_user_reservations_path
    else
       render :show
    end
