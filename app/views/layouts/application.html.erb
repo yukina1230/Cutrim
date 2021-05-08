@@ -25,7 +25,7 @@
               <li class="nav-item"><%= link_to "Salon", salon_users_path, class: 'nav-link text-dark' %></li>
               <li class="nav-item"><%= link_to "📸", posts_path, class: 'nav-link text-dark' %></li>
               <li class="nav-item"><%= link_to "favorite", users_favorites_path, class: 'nav-link text-dark' %></li>
-              <li class="nav-item"><%= link_to "Reserve", class: 'nav-link text-dark' %></li>
+              <li class="nav-item"><%= link_to "Reserve", users_reservations_path, class: 'nav-link text-dark' %></li>
               <li class="nav-item"><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'nav-link text-dark' %></li>
             <% elsif salon_user_signed_in? %>
               <li class="nav-item"><%= link_to "MyPage", admin_salon_users_mypage_path, class: 'nav-link text-dark' %></li>

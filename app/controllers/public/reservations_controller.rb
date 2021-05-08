@@ -20,14 +20,20 @@ class Public::ReservationsController < ApplicationController
  def create
    @reservation = current_user.reservations.new(reservation_params)
    if @reservation.save
-     redirect_to users_reservations_path, flash[:success] = "予約が完了しました。"
+     redirect_to users_reservations_path
    else
+     @reservation.reservation_images.build
+     @day = reservation_params[:day]
+     @time = reservation_params[:time]
+     @start_time = DateTime.parse(@day + " " + @time + " " + "JST")
+     @salon_user = SalonUser.find(params[:salon_user_id])
      render :new
    end
  end
 
  def show
    @reservation = Reservation.find(params[:id])
+   @salon_user = SalonUser.find(params[:salon_user_id])
  end
 
  def destroy

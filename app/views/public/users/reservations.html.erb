@@ -3,11 +3,13 @@
   <p>予約はありません。</p>
 <% else %>
   <% @reservations.each do |reservation| %>
-    <%= reservation.salon_user.salon_image %>
-    <%= reservation.salon_user.salon_name %>
-    <%= reservation.day %>
-    <%= reservation.time %>
-    <%= link_to '詳細', salon_user_reservation_path(reservation) %>
+    <%= attachment_image_tag reservation.salon_user, :salon_image %><br>
+    <%= reservation.salon_user.salon_name %><br>
+    〠<%= reservation.salon_user.postal_code %><br>
+    <%= reservation.salon_user.prefecture %><%= reservation.salon_user.address_city %><%= reservation.salon_user.address_building %><br>
+    予約日時：<%= reservation.day %>
+    <%= reservation.time %><br>
+    <%= link_to '詳細', salon_user_reservation_path(@salon_user, reservation) %><br>
   <% end %>
 <% end %>
 
