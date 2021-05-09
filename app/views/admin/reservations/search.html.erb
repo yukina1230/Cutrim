@@ -1,0 +1,13 @@
+<%= render 'search' %>
+<h1><%= @search %>の予約一覧</h1>
+<% if @reservations.exists? %>
+  <% @reservations.each do |reservation| %>
+    <%= link_to admin_reservation_path(reservation) do %>
+      予約ID：<%= reservation.id %><br>
+      来店日時：<%= reservation.day %>,<%= reservation.time %><br>
+      ご予約者様：<%= reservation.user.family_name %><%= reservation.user.first_name %><br>
+    <% end %>
+  <% end %>
+<% else %>
+  <p><%= @search %>の予約はありません。</p>
+<% end %>

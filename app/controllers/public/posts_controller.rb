@@ -10,6 +10,7 @@ class Public::PostsController < ApplicationController
   end
 
   def search
+    @search = params[:search]
     @posts = Post.search(params[:search])
     @salon_user = SalonUser.find_by(params[:salon_name])
   end

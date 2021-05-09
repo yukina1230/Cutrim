@@ -29,4 +29,12 @@ class Reservation < ApplicationRecord
     end
   end
 
+  def self.search(search)
+    if search
+      Reservation.where(['day LIKE ?', "#{search}"])
+    else
+      Reservation.all
+    end
+  end
+
 end
