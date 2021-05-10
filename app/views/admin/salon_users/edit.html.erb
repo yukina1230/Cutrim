@@ -20,7 +20,7 @@
       </tr>
       <tr>
         <td><%= f.label :prefecture_code, "都道府県" %></td>
-        <td><%= f.text_field :prefecture_code, autofocus: true %></td>
+        <td><%= f.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :name, :name %></td>
       </tr>
       <tr>
         <td><%= f.label :address_city, "住所" %></td>

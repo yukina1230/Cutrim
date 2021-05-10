@@ -25,7 +25,7 @@ class Admin::SalonUsersController < ApplicationController
       :salon_name,
       :salon_image,
       :postal_code,
-      :prefecture,
+      :prefecture_code,
       :address_city,
       :address_building,
       :phone,
