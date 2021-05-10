@@ -15,6 +15,9 @@ Rails.application.routes.draw do
     patch 'users/infomation' => 'users#update', as: 'update_infomation'
     resources :salon_users, only: [:index, :show] do
       resources :reservations, only: [:index, :new, :create, :show, :destroy]
+      collection do
+        get 'search'
+      end
     end
     resources :posts, only: [:index, :show] do
       resource :favorites, only: [:create, :destroy]

@@ -1,10 +1,11 @@
+
 <% @salon_users.each do |salon_user| %>
   <%= attachment_image_tag salon_user, :salon_image %>
   <%= link_to salon_user_path(salon_user) do %>
     <%= salon_user.salon_name %>
   <% end %>
   〠<%= salon_user.postal_code %><br>
-  <%= salon_user.prefecture %><%= salon_user.address_city %><%= salon_user.address_building %><br>
+  <%= salon_user.prefecture_code %><%= salon_user.address_city %><%= salon_user.address_building %><br>
   Phone<%= salon_user.phone %>
   /営業時間<%= salon_user.business_start_time&.strftime('%H:%M') %>~<%= salon_user.business_end_time&.strftime('%H:%M') %>
 <% end %>

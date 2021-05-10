@@ -65,8 +65,10 @@ gem "refile", require: "refile/rails", github: 'manfe/refile'
 gem "refile-mini_magick"
 gem 'bootstrap', '~> 4.5'
 gem 'jquery-rails'
+gem 'jp_prefecture'
 gem 'font-awesome-sass', '~> 5.13'
 gem 'kaminari','~> 1.2.1'
 gem "simple_calendar", "~> 2.0"
 gem 'pry-byebug'
-gem 'jp_prefecture'
+gem 'devise-i18n'
+gem 'devise-i18n-views'

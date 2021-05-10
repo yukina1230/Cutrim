@@ -45,7 +45,7 @@ class SalonUsers::RegistrationsController < Devise::RegistrationsController
     devise_parameter_sanitizer.permit(:sign_up, keys: [
       :salon_name,
       :postal_code,
-      :prefecture,
+      :prefecture_code,
       :address_city,
       :address_building,
       :phone])

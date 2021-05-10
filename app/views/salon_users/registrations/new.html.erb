@@ -2,7 +2,7 @@
 <h2>サロン様新規会員登録</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "salon_users/shared/error_messages", resource: resource %>
+
 
  <table>
     <thead>
@@ -13,31 +13,31 @@
     <tbody>
       <tr>
         <td><%= f.label :salon_name, "サロン名" %></td>
-        <td><%= f.text_field :salon_name, autofocus: true %></td>
+        <td><%= f.text_field :salon_name, autofocus: true %><%= resource.errors.full_messages_for(:salon_name)[0] %></td>
       </tr>
       <tr>
         <td><%= f.label :postal_code, "貴店郵便番号" %></td>
-        <td><%= f.text_field :postal_code, autofocus: true, :placeholder => "123-4567", id: "postal_code" %></td>
+        <td><%= f.text_field :postal_code, autofocus: true, :placeholder => "123-4567", id: "postal_code" %><%= resource.errors.full_messages_for(:postal_code)[0] %></td>
       </tr>
       <tr>
         <td>貴店ご住所</td>
         <td>
-          <%= f.label :prefecture, "都道府県" %><%= f.text_field :prefecture, autofocus: true, id: "prefecture" %><br>
-          <%= f.label :address_city, "市区郡以下" %><%= f.text_field :address_city, autofocus: true, id: "address_city" %><br>
+          <%= f.label :prefecture_code, "都道府県" %><%= f.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :code, :name, { prompt: '選択してください' }, id: "prefecture" %><%= resource.errors.full_messages_for(:prefecture)[0] %><br>
+          <%= f.label :address_city, "市区郡以下" %><%= f.text_field :address_city, autofocus: true, id: "address_city" %><%= resource.errors.full_messages_for(:address_city)[0] %><br>
           <%= f.label :address_building, "ビル・マンション名" %><%= f.text_field :address_building, autofocus: true %>
         </td>
       </tr>
       <tr>
         <td><%= f.label :phone, "貴店電話番号（ハイフンなし）" %></td>
-        <td><%= f.text_field :phone, autofocus: true, :placeholder => "0120123456" %></td>
+        <td><%= f.text_field :phone, autofocus: true, :placeholder => "0120123456" %><%= resource.errors.full_messages_for(:phone)[0] %></td>
       </tr>
       <tr>
         <td><%= f.label :email, "貴店メールアドレス" %></td>
-        <td><%= f.email_field :email, autocomplete: "email" %></td>
+        <td><%= f.email_field :email, autocomplete: "email" %><%= resource.errors.full_messages_for(:email)[0] %></td>
       </tr>
       <tr>
         <td><%= f.label :password, "パスワード(#{@minimum_password_length}文字以上)" %></td>
-        <td><%= f.password_field :password, autocomplete: "new-password" %></td>
+        <td><%= f.password_field :password, autocomplete: "new-password" %><%= resource.errors.full_messages_for(:password)[0] %></td>
       </tr>
       <tr>
         <td><%= f.label :password_confirmation, "パスワード(確認用)" %></td>

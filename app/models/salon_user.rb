@@ -12,10 +12,10 @@ class SalonUser < ApplicationRecord
   with_options presence: true do
     validates :salon_name
     validates :postal_code, format: {with: /\A\d{3}[-]\d{4}\z/ }
-    validates :prefecture
+    validates :prefecture_code
     validates :address_city
     validates :phone, format: {with: /\A\d{10,11}\z/ }
     validates :email, uniqueness: true
   end
-  
+
 end

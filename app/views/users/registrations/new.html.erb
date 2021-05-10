@@ -2,7 +2,7 @@
 <h2>新規会員登録</h2>
 
 <%= form_with model: @user, url: user_registration_path, id: 'new_user', class: 'new_user', local: true do |f| %>
-  <%= render "users/shared/error_messages", resource: resource %>
+
   <table>
     <thead>
       <th></th>
@@ -15,10 +15,12 @@
         <td>
           <%= f.label :family_name, "姓" %>
           <%= f.text_field :family_name, autofocus: true, :placeholder => "田中" %>
+          <%= resource.errors.full_messages_for(:family_name)[0] %>
         </td>
         <td>
-          <%= f.label :family_name, "名" %>
+          <%= f.label :first_namee, "名" %>
           <%= f.text_field :first_name, autofocus: true, :placeholder => "花子" %>
+          <%= resource.errors.full_messages_for(:first_name)[0] %>
         </td>
       </tr>
       <tr>
@@ -26,35 +28,37 @@
         <td>
           <%= f.label :family_name_kana, "セイ" %>
           <%= f.text_field :family_name_kana, autofocus: true, :placeholder => "タナカ" %>
+          <%= resource.errors.full_messages_for(:family_name_kana)[0] %>
         </td>
         <td>
           <%= f.label :family_name_kana, "メイ" %>
           <%= f.text_field :first_name_kana, autofocus: true, :placeholder => "ハナコ" %>
+          <%= resource.errors.full_messages_for(:first_name_kana)[0] %>
         </td>
       </tr>
       <tr>
         <td><%= f.label :nickname, "ニックネーム" %></td>
-        <td><%= f.text_field :nickname, autofocus: true %></td>
+        <td><%= f.text_field :nickname, autofocus: true %><%= resource.errors.full_messages_for(:nickname)[0] %></td>
       </tr>
       <tr>
         <td><%= f.label :email, "メールアドレス" %></td>
-        <td><%= f.email_field :email, autocomplete: "email" %></td>
+        <td><%= f.email_field :email, autocomplete: "email" %><%= resource.errors.full_messages_for(:email)[0] %></td>
       </tr>
       <tr>
         <td><%= f.label :phone, "電話番号(ハイフンなし)" %></td>
-        <td><%= f.text_field :phone, autofocus: true, :placeholder => "09012345678" %></td>
+        <td><%= f.text_field :phone, autofocus: true, :placeholder => "09012345678" %><%= resource.errors.full_messages_for(:phone)[0] %></td>
       </tr>
       <tr>
         <td><%= f.label :postal_code, "郵便番号" %></td>
-        <td><%= f.text_field :postal_code, autofocus: true, :placeholder => "123-4567", id: "postal_code" %></td>
+        <td><%= f.text_field :postal_code, autofocus: true, :placeholder => "123-4567", id: "postal_code" %><%= resource.errors.full_messages_for(:postal_code)[0] %></td>
       </tr>
       <tr>
-        <td><%= f.label :prefecture, "都道府県" %></td>
-        <td><%= f.text_field :prefecture, autofocus: true, id: "prefecture" %></td>
+        <td><%= f.label :prefecture_code, "都道府県" %></td>
+        <td><%= f.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :code, :name, { prompt: '選択してください' }, id: "prefecture" %><%= resource.errors.full_messages_for(:prefecture)[0] %></td>
       </tr>
       <tr>
         <td><%= f.label :address_city, "住所" %></td>
-        <td><%= f.text_field :address_city, autofocus: true, id: "address_city" %></td>
+        <td><%= f.text_field :address_city, autofocus: true, id: "address_city" %><%= resource.errors.full_messages_for(:address_city)[0] %></td>
       </tr>
       <tr>
         <td><%= f.label :address_building, "ビル名・マンション名" %></td>
@@ -62,7 +66,7 @@
       </tr>
       <tr>
         <td><%= f.label :password, "パスワード(#{@minimum_password_length}文字以上)" %></td>
-        <td><%= f.password_field :password, autocomplete: "new-password" %></td>
+        <td><%= f.password_field :password, autocomplete: "new-password" %><%= resource.errors.full_messages_for(:password)[0] %></td>
       </tr>
       <tr>
         <td><%= f.label :password_confirmation, "パスワード(確認用)" %></td>
