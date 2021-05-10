@@ -1,3 +1,4 @@
+<script type="text/javascript" src="//jpostal-1006.appspot.com/jquery.jpostal.js"></script>
 <h2>サロン様新規会員登録</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
@@ -15,14 +16,14 @@
         <td><%= f.text_field :salon_name, autofocus: true %></td>
       </tr>
       <tr>
-        <td><%= f.label :postal_code, "貴店郵便番号（ハイフンなし）" %></td>
-        <td><%= f.text_field :postal_code, autofocus: true, :placeholder => "1234567" %></td>
+        <td><%= f.label :postal_code, "貴店郵便番号" %></td>
+        <td><%= f.text_field :postal_code, autofocus: true, :placeholder => "123-4567", id: "postal_code" %></td>
       </tr>
       <tr>
         <td>貴店ご住所</td>
         <td>
-          <%= f.label :prefecture, "都道府県" %><%= f.text_field :prefecture, autofocus: true %><br>
-          <%= f.label :address_city, "市区郡以下" %><%= f.text_field :address_city, autofocus: true %><br>
+          <%= f.label :prefecture, "都道府県" %><%= f.text_field :prefecture, autofocus: true, id: "prefecture" %><br>
+          <%= f.label :address_city, "市区郡以下" %><%= f.text_field :address_city, autofocus: true, id: "address_city" %><br>
           <%= f.label :address_building, "ビル・マンション名" %><%= f.text_field :address_building, autofocus: true %>
         </td>
       </tr>

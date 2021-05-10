@@ -15,7 +15,24 @@
 //= require popper
 //= require bootstrap-sprockets
 
-//= require rails-ujs
+//= require jquery
+//= require jquery_ujs
 //= require activestorage
 //= require turbolinks
+//= require jquery.jpostal
 //= require_tree .
+
+/*global $*/
+$(function() {
+  $(document).on('turbolinks:load', () => {
+    $('#postal_code').jpostal({
+      postcode : [
+        '#postal_code'
+      ],
+      address: {
+        "#prefecture": "%3", 
+        "#address_city"           : "%4%5",
+      }
+    });
+  });
+});

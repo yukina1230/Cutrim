@@ -4,6 +4,11 @@ class Post < ApplicationRecord
   accepts_attachments_for :post_images, attachment: :image
   has_many :favorites, dependent: :destroy
 
+  with_options presence: true do
+    validates :dog_breed
+    validates :caption
+  end
+
   def favorited_by?(user)
     favorites.where(user_id: user.id).exists?
   end

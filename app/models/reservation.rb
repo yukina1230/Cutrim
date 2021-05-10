@@ -6,6 +6,13 @@ class Reservation < ApplicationRecord
 
   enum dog_gender: { 'オス': 0, 'メス': 1 }
 
+  with_options presence: true do
+    validates :dog_name
+    validates :dog_breed
+    validates :dog_birth
+    validates :dog_gender
+  end
+
 
   #今日から３ヶ月先までの予約データを取得
   def self.reservations_after_three_month
