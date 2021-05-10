@@ -18,4 +18,12 @@ class SalonUser < ApplicationRecord
     validates :email, uniqueness: true
   end
 
+  def self.search(search)
+    if search
+      SalonUser.where(['prefecture_code LIKE ?', "#{search}"])
+    else
+      SalonUser.all
+    end
+  end
+
 end

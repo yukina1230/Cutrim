@@ -1,4 +1,4 @@
-
+<%= render 'search' %>
 <% @salon_users.each do |salon_user| %>
   <%= attachment_image_tag salon_user, :salon_image %>
   <%= link_to salon_user_path(salon_user) do %>

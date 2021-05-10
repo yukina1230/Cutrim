@@ -7,4 +7,8 @@ class Public::SalonUsersController < ApplicationController
     @salon_user = SalonUser.find(params[:id])
   end
 
+  def search
+    @search = params[:search]
+    @salon_users = SalonUser.search(params[:search])
+  end
 end
