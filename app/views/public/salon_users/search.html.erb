@@ -1,16 +1,23 @@
 <%= render 'search' %>
-
 <% if @salon_users.exists? %>
   <% @salon_users.each do |salon_user| %>
-    <%= attachment_image_tag salon_user, :salon_image %>
-    <%= link_to salon_user_path(salon_user) do %>
-      <%= salon_user.salon_name %>
-    <% end %>
-    〠<%= salon_user.postal_code %><br>
-    <%= salon_user.prefecture_code %><%= salon_user.address_city %><%= salon_user.address_building %><br>
-    Phone<%= salon_user.phone %>
-    /営業時間<%= salon_user.business_start_time&.strftime('%H:%M') %>~<%= salon_user.business_end_time&.strftime('%H:%M') %>
+  <div class="row border-top mt-3 mb-3 pt-3">
+    <div class="col-3 offset-1">
+        <%= attachment_image_tag salon_user, :salon_image, :fill, 300, 150, fallback: "no_image.jpg",size:'300x150' %>
+    </div>
+    <div class="col-5">
+      <div class="h3 mb-3 text-dark">
+        <%= link_to salon_user_path(salon_user) do %>
+          <%= salon_user.salon_name %>
+        <% end %>
+      </div>
+      〠<%= salon_user.postal_code %><br>
+      <%= salon_user.prefecture_code %><%= salon_user.address_city %><%= salon_user.address_building %><br>
+      <i class="fas fa-phone-square-alt"></i><%= salon_user.phone %>
+      / 営業時間 <%= salon_user.business_start_time&.strftime('%H:%M') %>~<%= salon_user.business_end_time&.strftime('%H:%M') %>
+    </div>
+  </div>
   <% end %>
 <% else %>
-  <p><%= @search %>のサロンはありません。</p>
+  <p class="text-center h4"><%= @search %>のサロンはありません。</p>
 <% end %>

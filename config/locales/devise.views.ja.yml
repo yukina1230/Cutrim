@@ -3,6 +3,7 @@ ja:
     errors:
       models:
         user:
+        salon_user:
           attributes:
             email:
               taken: "は既に使用されています。"
@@ -35,7 +36,7 @@ ja:
             postal_code:
               blank: "が入力されていません。"
               invalid: "は有効でありません。"
-            prefecture:
+            prefecture_code:
               blank: "が入力されていません。"
             address_city:
               blank: "が入力されていません。"
@@ -50,43 +51,11 @@ ja:
         nickname: "ニックネーム"
         phone: "電話番号"
         postal_code: "郵便番号"
-        prefecture: "都道府県"
+        prefecture_code: "都道府県"
         address_city: "住所"
         password: "パスワード"
         password_confirmation: "確認用パスワード"
         remember_me: "ログインを記憶"
-    models:
-      user: "会員"
-    errors:
-      models:
-        salon_user:
-          attributes:
-            email:
-              taken: "は既に使用されています。"
-              blank: "が入力されていません。"
-              too_short: "は%{count}文字以上に設定して下さい。"
-              too_long: "は%{count}文字以下に設定して下さい。"
-              invalid: "は有効でありません。"
-            password:
-              taken: "は既に使用されています。"
-              blank: "が入力されていません。"
-              too_short: "は%{count}文字以上に設定して下さい。"
-              too_long: "は%{count}文字以下に設定して下さい。"
-              invalid: "は有効でありません。"
-              confirmation: "が内容とあっていません。"
-            salon_name:
-              blank: "が入力されていません。"
-            phone:
-              blank: "が入力されていません。"
-              invalid: "は有効でありません。"
-            postal_code:
-              blank: "が入力されていません。"
-              invalid: "は有効でありません。"
-            prefecture:
-              blank: "が入力されていません。"
-            address_city:
-              blank: "が入力されていません。"
-    attributes:
       salon_user:
         current_password: "現在のパスワード"
         email: "メールアドレス"
@@ -99,6 +68,7 @@ ja:
         password_confirmation: "確認用パスワード"
         remember_me: "ログインを記憶"
     models:
+      user: "会員"
       salon_user: "サロン会員"
 
   devise:

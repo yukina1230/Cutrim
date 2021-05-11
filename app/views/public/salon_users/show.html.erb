@@ -1,46 +1,81 @@
-<div>
-  <div class="salon_image">
-    <%= attachment_image_tag @salon_user, :salon_image %>
-    <div>
+<div class="salon-detail">
+  <div class="salon-image">
+    <%= attachment_image_tag @salon_user, :salon_image, :fill, 800, 400, fallback: "no_image.jpg",size:'800x400' %>
+    <div class="salon-name">
       <%= @salon_user.salon_name %>
     </div>
   </div>
 </div>
 
-<div>
-  <h3>SALON INFO</h3>
-  <p>サロン詳細</p>
-  <%= @salon_user.introduction %>
-  <p>住所</p>
-  〠<%= @salon_user.postal_code %><br>
-  <%= @salon_user.prefecture_code %><%= @salon_user.address_city %><%= @salon_user.address_building %>
-  <p>電話番号</p>
-  <%= @salon_user.phone %>
-  <p>営業日</p>
-  <%= @salon_user.business_day %><br>
-  <%= @salon_user.business_start_time&.strftime('%H:%M') %>~<%= @salon_user.business_end_time&.strftime('%H:%M') %>
-</div>
-
-<div>
-  <h3>📸</h3>
-  <% @salon_user.posts.each do |post| %>
-    <%= link_to post_path(post) do %>
-      <% post.post_images.each do |image| %><br>
-        <%= attachment_image_tag image, :image, :fill, 200, 200 %>
-      <<% end %>
+<div class="wrap">
+  <ul id="tab-menu">
+    <li><a href="#tab1" class="active">Salon Info</a></li>
+    <li><a href="#tab2" class=""><i class="fas fa-camera"></i></a></li>
+    <li><a href="#tab3" class="">Menu</a></li>
+    <%= link_to salon_user_reservations_path(@salon_user), class: "btn btn-secondary ml-3" do %>
+      <i class="far fa-calendar-alt"></i>   Reserve
     <% end %>
-  <% end %>
+  </ul>
+  <div id="tab-contents">
+    <div id="tab1" class="tab">
+      <table class="table-layout">
+        <tbody>
+          <tr>
+            <td class="table-heading">サロン紹介</td>
+            <td><%= @salon_user.introduction %></td>
+          </tr>
+          <tr>
+            <td>住所</td>
+            <td>
+              〠<%= @salon_user.postal_code %><br>
+              <%= @salon_user.prefecture_code %><%= @salon_user.address_city %><%= @salon_user.address_building %>
+            </td>
+          </tr>
+          <tr>
+            <td>電話番号</td>
+            <td><%= @salon_user.phone %></td>
+          </tr>
+          <tr>
+            <td>営業日</td>
+            <td>
+              <%= @salon_user.business_day %><br>
+              <%= @salon_user.business_start_time&.strftime('%H:%M') %>~<%= @salon_user.business_end_time&.strftime('%H:%M') %>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div id="tab2" class="tab">
+      <div class="salon_user_post_image">
+        <% @salon_user.posts.each do |post| %>
+          <%= link_to post_path(post) do %>
+            <% post.post_images.each do |image| %><br>
+              <%= attachment_image_tag image, :image, :fill, 200, 200 %>
+            <% end %>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+    <div id="tab3" class="tab">
+      <% @salon_user.menus.each do |menu| %>
+      <table class="table-layout">
+        <thead>
+          <tr>
+            <th class="table-top">メニュー</th>
+            <th class="table-second">メニュー内容</th>
+            <th>金額</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><%= menu.name %></td>
+            <td><%= menu.caption %></td>
+            <td><%= menu.amount %>円（税込）</td>
+          </tr>
+        </tbody>
+      </table>
+      <% end %>
+    </div>
+  </div>
 </div>
-
-<div>
-  <h3>MENU</h3>
-  <% @salon_user.menus.each do |menu| %>
-    <%= menu.name %>
-    <%= menu.caption %>
-    <%= menu.amount %>円（税込）
-  <% end %>
-</div>
-
-<div>
-  <%= link_to 'Reserve', salon_user_reservations_path(@salon_user), class: "btn btn-secondary" %>
-</div>
+<%= javascript_include_tag 'salon_user.js' %>
