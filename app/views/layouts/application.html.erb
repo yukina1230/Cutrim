@@ -5,6 +5,7 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <script src="https://kit.fontawesome.com/721f0cdc29.js" crossorigin="anonymous"></script>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
@@ -21,24 +22,84 @@
             <ul class="navbar-nav ml-auto">
           　<% if user_signed_in? %>
               <p>Welcome,<%= current_user.nickname %>さん☺︎</p>
-              <li class="nav-item"><%= link_to "MyPage", mypage_path, class: 'nav-link text-dark' %></li>
-              <li class="nav-item"><%= link_to "Salon", salon_users_path, class: 'nav-link text-dark' %></li>
-              <li class="nav-item"><%= link_to "📸", posts_path, class: 'nav-link text-dark' %></li>
-              <li class="nav-item"><%= link_to "favorite", users_favorites_path, class: 'nav-link text-dark' %></li>
-              <li class="nav-item"><%= link_to "Reservation", users_reservations_path, class: 'nav-link text-dark' %></li>
-              <li class="nav-item"><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'nav-link text-dark' %></li>
+              <li class="nav-item">
+                <%= link_to mypage_path, class: 'nav-link text-dark' do %>
+                  <i class="far fa-address-card"></i>MyPage
+                <% end %>
+              </li>
+              <li class="nav-item">
+                <%= link_to salon_users_path, class: 'nav-link text-dark' do %>
+                  <i class="fas fa-cut"></i>Salon
+                <% end %>
+              </li>
+              <li class="nav-item">
+                <%= link_to posts_path, class: 'nav-link text-dark' do %>
+                  <i class="fas fa-camera"></i>
+                <% end %>
+              </li>
+              <li class="nav-item">
+                <%= link_to users_favorites_path, class: 'nav-link text-dark' do %>
+                  <i class="fab fa-gratipay"></i>Favorite
+                <% end %>
+              </li>
+              <li class="nav-item">
+                <%= link_to users_reservations_path, class: 'nav-link text-dark' do %>
+                  <i class="far fa-calendar-alt"></i>Reservation
+                <% end %>
+              </li>
+              <li class="nav-item">
+                <%= link_to destroy_user_session_path, method: :delete, class: 'nav-link text-dark' do %>
+                  <i class="fas fa-sign-out-alt"></i>ログアウト
+                <% end %>
+              </li>
             <% elsif salon_user_signed_in? %>
-              <li class="nav-item"><%= link_to "MyPage", admin_salon_users_mypage_path, class: 'nav-link text-dark' %></li>
+              <li class="nav-item">
+                <%= link_to admin_salon_users_mypage_path, class: 'nav-link text-dark' do %>
+                  <i class="far fa-address-card"></i>MyPage
+                <% end %>
+              </li>
               <li class="nav-item"><%= link_to "Menu", admin_menus_path, class: 'nav-link text-dark' %></li>
-              <li class="nav-item"><%= link_to "📸", admin_posts_path, class: 'nav-link text-dark' %></li>
-              <li class="nav-item"><%= link_to "Reservation", admin_reservations_path, class: 'nav-link text-dark' %></li>
-              <li class="nav-item"><%= link_to "ログアウト", destroy_salon_user_session_path, method: :delete, class: 'nav-link text-dark' %></li>
+              <li class="nav-item">
+                <%= link_to admin_posts_path, class: 'nav-link text-dark' do %>
+                  <i class="fas fa-camera"></i>
+                <% end %>
+              </li>
+              <li class="nav-item">
+                <%= link_to admin_reservations_path, class: 'nav-link text-dark' do %>
+                  <i class="far fa-calendar-alt"></i>Reservation
+                <% end %>
+              </li>
+              <li class="nav-item">
+                <%= link_to destroy_salon_user_session_path, method: :delete, class: 'nav-link text-dark' do %>
+                  <i class="fas fa-sign-out-alt"></i>ログアウト
+                <% end %>
+              </li>
             <% else %>
-              <li class="nav-item"><%= link_to "About", homes_about_path, class: 'nav-link text-dark' %></li>
-              <li class="nav-item"><%= link_to "Salon", salon_users_path, class: 'nav-link text-dark' %></li>
-              <li class="nav-item"><%= link_to "📸", posts_path, class: 'nav-link text-dark' %></li>
-              <li class="nav-item"><%= link_to "新規登録", new_user_registration_path, class: 'nav-link text-dark' %></li>
-              <li class="nav-item"><%= link_to "ログイン", new_user_session_path, class: 'nav-link text-dark' %></li>
+              <li class="nav-item">
+                <%= link_to homes_about_path, class: 'nav-link text-dark' do %>
+                  <i class="fas fa-book-open"></i>About
+                <% end %>
+              </li>
+              <li class="nav-item">
+                <%= link_to salon_users_path, class: 'nav-link text-dark' do %>
+                  <i class="fas fa-cut"></i>Salon
+                <% end %>
+              </li>
+              <li class="nav-item">
+                <%= link_to posts_path, class: 'nav-link text-dark' do %>
+                  <i class="fas fa-camera"></i>
+                <% end %>
+              </li>
+              <li class="nav-item">
+                <%= link_to new_user_registration_path, class: 'nav-link text-dark' do %>
+                  <i class="fas fa-user-plus"></i>新規登録
+                <% end %>
+              </li>
+              <li class="nav-item">
+                <%= link_to new_user_session_path, class: 'nav-link text-dark' do %>
+                  <i class="fas fa-address-book"></i>ログイン
+                <% end %>
+              </li>
             <% end %>
           </ul>
           </div>
@@ -56,4 +117,6 @@
       </div>
     </footer>
   </body>
+  <script src="js/jquery.min.js"></script>
+  <script src="js/script.js"></script>
 </html>

@@ -18,6 +18,8 @@
  @import 'font-awesome-sprockets';
  @import 'font-awesome';
 
+ @charset "UTF-8";
+
  body {
 	color: #73646A;
 }
@@ -98,8 +100,40 @@ header {
  background-size: cover;
 }
 
+.new-post {
+ display: flex;
+ width: 900px;
+ height: 450px;
+}
+
+.new-post-left {
+ width: 300px;
+ display: flex;
+ flex-wrap: wrap;
+}
+.new-post-center {
+ width: 300px;
+ display: flex;
+ flex-wrap: wrap;
+}
+.new-post-right {
+ width: 300px;
+ display: flex;
+ flex-wrap: wrap;
+}
+
 footer {
  width: 100%;
  height: 150px;
  line-height: 100px;
+}
+
+#back {
+  position: fixed;
+  right: 30px;
+  bottom: 30px;
+}
+
+#back img {
+  width: 50px;
 }

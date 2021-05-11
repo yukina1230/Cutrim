@@ -42,14 +42,34 @@
 </div>
 <div class="row mt-5">
   <div class="col-6 offset-3">
-    <h2 class="text-center">📸 NEW POST</h2>
+    <h2 class="text-center"><i class="fas fa-camera"></i>NEW POST</h2>
   </div>
 </div>
 <div class="row mt-1">
   <div class="col-8 offset-2">
-    <% @post_images.first(12).each do |image| %>
-      <%= attachment_image_tag image, :image, :fill, 100, 100, fallback: "no_image.png",size:'100x100' %>
-    <% end %>
+  <div class="new-post">
+    <div class="new-post-left">
+      <% @post_images.first(1).each do |image| %>
+        <%= attachment_image_tag image, :image, :fill, 300, 300, fallback: "no_image.png",size:'300x300', class: "border border-white rounded" %>
+      <% end %>
+      <% @post_images.slice(2..3).each do |image| %>
+        <%= attachment_image_tag image, :image, :fill, 150, 150, fallback: "no_image.png",size:'150x150', class: "border border-white rounded " %>
+      <% end %>
+    </div>
+    <div class="new-post-center">
+      <% @post_images.slice(4..9).each do |image| %>
+        <%= attachment_image_tag image, :image, :fill, 150, 150, fallback: "no_image.png",size:'150x150', class: "border border-white rounded" %>
+      <% end %>
+    </div>
+    <div class="new-post-right">
+      <% @post_images.slice(10..11).each do |image| %>
+        <%= attachment_image_tag image, :image, :fill, 150, 150, fallback: "no_image.png",size:'150x150', class: "border border-white rounded" %>
+      <% end %>
+      <% @post_images.slice(12..12).each do |image| %>
+        <%= attachment_image_tag image, :image, :fill, 300, 300, fallback: "no_image.png",size:'300x300', class: "border border-white rounded" %>
+      <% end %>
+    </div>
+  </div>
   </div>
 </div>
 <div class="row mt-5">
@@ -57,5 +77,11 @@
     <%= link_to "VIEW MORE>", posts_path, class: "btn btn-dark" %>
   </div>
 </div>
+
+<span id="back">
+  <%= link_to "#" do %>
+    <%= image_tag "img/logo-top.png" %>
+  <% end %>
+</span>
 
 
