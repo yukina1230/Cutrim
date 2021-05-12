@@ -7,74 +7,84 @@
 </div>
 <div class="row mt-4">
   <div class="col-6">
-    <p class="text-center align-middle">
-      <br>
-      <br>
-      <br>
-      Cutrimでは、<br>
-      お好みのカットスタイルを探すことができます。<br>
-      さらに、お近くのサロンでのご予約も<br>
-      Cutrimから可能です。<br>
-      <br>
-      <%= link_to "ABOUT US >", homes_about_path, class: "btn btn-dark" %>
-    </p>
+    <div class="scroll-left">
+      <p class="text-center align-middle">
+        <br>
+        <br>
+        <br>
+        Cutrimでは、<br>
+        お好みのカットスタイルを探すことができます。<br>
+        さらに、お近くのサロンでのご予約も<br>
+        Cutrimから可能です。<br>
+        <br>
+        <%= link_to "ABOUT US >", homes_about_path, class: "btn btn-dark" %>
+      </p>
+    </div>
   </div>
   <div class="col-6">
-    <div class="main-about-image"></div>
+    <div class="scroll-right">
+      <div class="main-about-image"></div>
+    </div>
   </div>
 </div>
 <div class="row mt-3">
   <div class="col-6">
-    <div class="main-salon-image"></div>
+    <div class="scroll-left">
+      <div class="main-salon-image"></div>
+    </div>
   </div>
   <div class="col-6">
     <p class="text-center">
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      お近くのサロンを探しましょう。<br>
-      <br>
-      <%= link_to "SALON >", salon_users_path, class: "btn btn-dark" %>
-    </p>
-  </div>
-</div>
-<div class="row mt-5">
-  <div class="col-6 offset-3">
-    <h2 class="text-center"><i class="fas fa-camera"></i>NEW POST</h2>
-  </div>
-</div>
-<div class="row mt-1">
-  <div class="col-8 offset-2">
-  <div class="new-post">
-    <div class="new-post-left">
-      <% @post_images.first(1).each do |image| %>
-        <%= attachment_image_tag image, :image, :fill, 300, 300, fallback: "no_image.jpg",size:'300x300', class: "border border-white rounded" %>
-      <% end %>
-      <% @post_images.slice(2..3).each do |image| %>
-        <%= attachment_image_tag image, :image, :fill, 150, 150, fallback: "no_image.jpg",size:'150x150', class: "border border-white rounded " %>
-      <% end %>
-    </div>
-    <div class="new-post-center">
-      <% @post_images.slice(4..9).each do |image| %>
-        <%= attachment_image_tag image, :image, :fill, 150, 150, fallback: "no_image.jpg",size:'150x150', class: "border border-white rounded" %>
-      <% end %>
-    </div>
-    <div class="new-post-right">
-      <% @post_images.slice(10..11).each do |image| %>
-        <%= attachment_image_tag image, :image, :fill, 150, 150, fallback: "no_image.jpg",size:'150x150', class: "border border-white rounded" %>
-      <% end %>
-      <% @post_images.slice(12..12).each do |image| %>
-        <%= attachment_image_tag image, :image, :fill, 300, 300, fallback: "no_image.jpg",size:'300x300', class: "border border-white rounded" %>
-      <% end %>
+      <div class="scroll-right">
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        お近くのサロンを探しましょう。<br>
+        <br>
+        <%= link_to "SALON >", salon_users_path, class: "btn btn-dark" %>
+      </p>
     </div>
   </div>
-  </div>
 </div>
-<div class="row mt-5">
-  <div class="col-4 offset-5">
-    <%= link_to "VIEW MORE >", posts_path, class: "btn btn-dark" %>
+<div class="scroll-animation">
+  <div class="row mt-5">
+    <div class="col-6 offset-3">
+      <h2 class="text-center"><i class="fas fa-camera"></i>NEW POST</h2>
+    </div>
+  </div>
+  <div class="row mt-1">
+    <div class="col-8 offset-2">
+      <div class="new-post">
+        <div class="new-post-left">
+          <% @post_images.first(1).each do |image| %>
+            <%= attachment_image_tag image, :image, :fill, 300, 300, fallback: "no_image.jpg",size:'300x300', class: "border border-white rounded" %>
+          <% end %>
+          <% @post_images.slice(2..3).each do |image| %>
+            <%= attachment_image_tag image, :image, :fill, 150, 150, fallback: "no_image.jpg",size:'150x150', class: "border border-white rounded " %>
+          <% end %>
+        </div>
+        <div class="new-post-center">
+          <% @post_images.slice(4..9).each do |image| %>
+            <%= attachment_image_tag image, :image, :fill, 150, 150, fallback: "no_image.jpg",size:'150x150', class: "border border-white rounded" %>
+          <% end %>
+        </div>
+        <div class="new-post-right">
+          <% @post_images.slice(10..11).each do |image| %>
+            <%= attachment_image_tag image, :image, :fill, 150, 150, fallback: "no_image.jpg",size:'150x150', class: "border border-white rounded" %>
+          <% end %>
+          <% @post_images.slice(12..12).each do |image| %>
+            <%= attachment_image_tag image, :image, :fill, 300, 300, fallback: "no_image.jpg",size:'300x300', class: "border border-white rounded" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row mt-5">
+    <div class="col-4 offset-5">
+      <%= link_to "VIEW MORE >", posts_path, class: "btn btn-dark" %>
+    </div>
   </div>
 </div>
 
@@ -84,4 +94,5 @@
   <% end %>
 </span>
 <%= javascript_include_tag 'script.js' %>
+
 
