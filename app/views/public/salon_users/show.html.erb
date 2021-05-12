@@ -49,9 +49,12 @@
       <div class="salon_user_post_image">
         <% @salon_user.posts.each do |post| %>
           <%= link_to post_path(post) do %>
-            <% post.post_images.each do |image| %><br>
-              <%= attachment_image_tag image, :image, :fill, 200, 200 %>
-            <% end %>
+            <div class="card shadow-lg mr-2 mb-2">
+              <% post.post_images.each do |image| %><br>
+                <%= attachment_image_tag image, :image, :fill, 200, 200 %>
+                <% break %>
+              <% end %>
+            </div>
           <% end %>
         <% end %>
       </div>

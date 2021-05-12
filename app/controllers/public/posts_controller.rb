@@ -1,6 +1,6 @@
 class Public::PostsController < ApplicationController
   def index
-    @posts = Post.all
+    @posts = Post.all.order(id: "DESC").page(params[:page])
     @salon_user = SalonUser.find_by(params[:salon_name])
   end
 

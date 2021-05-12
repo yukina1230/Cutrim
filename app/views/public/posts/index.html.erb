@@ -1,7 +1,18 @@
-<div class="search_form">
-  <%= form_with url: search_posts_path, local: true, method: :get do |f| %>
-    <%= f.text_field :dog_breed %>
-    <%= f.submit "検索", class: "btn btn-dark" %>
-  <% end %>
+<div class="row">
+  <div class="col-3 offset-7">
+    <div class="search_form">
+      <%= form_with url: search_posts_path, local: true, method: :get do |f| %>
+        <%= f.text_field :dog_breed, :placeholder => "犬種を入力" %>
+        <%= f.submit "検索", class: "btn btn-dark" %>
+      <% end %>
+    </div>
+  </div>
 </div>
+
 <%= render 'index', posts: @posts %>
+
+<div class="row mt-5">
+  <div class="col-3 offset-5">
+    <%= paginate @posts %>
+  </div>
+</div>

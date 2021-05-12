@@ -1,43 +1,62 @@
 <% if user_signed_in? %>
-
-    <% posts.each do |post| %>
-      <%= link_to post_path(post) do %>
-        <% post.post_images.each do |image| %><br>
-          <%= attachment_image_tag image, :image, :fill, 200, 200 %>
-        <% end %>
+  <div class="row">
+    <div class="col-6 offset-3">
+      <div class="post-index">
+      <% posts.each do |post| %>
+        <div class="card mx-auto mt-4 shadow-lg" style="width: 202px">
+          <%= link_to post_path(post) do %>
+            <% post.post_images.each do |image| %><br>
+              <%= attachment_image_tag image, :image, :fill, 200, 200 %>
+            <% end %>
+          <% end %>
+          <div class="card-body">
+            <% if post.favorited_by?(current_user) %>
+              <%= link_to post_favorites_path(post), method: :delete do %>
+                <%= image_tag '/assets/born_brown.jpeg', :size =>'20x20' %>
+              <% end %>
+              <%= post.favorites.count %>
+            <% else %>
+              <%= link_to post_favorites_path(post), method: :post do %>
+                <%= image_tag '/assets/born_white.jpeg', :size =>'20x20' %>
+              <% end %>
+              <%= post.favorites.count %>
+            <% end %>
+            <%= post.created_at.strftime('%Y/%m/%d') %><br>
+            <%= @salon_user.salon_name %><br>
+            犬種：<%= post.dog_breed %>
+          </div>
+        </div>
       <% end %>
-      <% if post.favorited_by?(current_user) %>
-        <%= link_to post_favorites_path(post), method: :delete do %>
-          <%= image_tag '/assets/born_brown.jpeg', :size =>'20x20' %>
-        <% end %>
-        <%= post.favorites.count %>
-      <% else %>
-        <%= link_to post_favorites_path(post), method: :post do %>
-          <%= image_tag '/assets/born_white.jpeg', :size =>'20x20' %>
-        <% end %>
-        <%= post.favorites.count %>
-      <% end %>
-      <%= post.created_at.strftime('%Y/%m/%d') %><br>
-      <%= @salon_user.salon_name %><br>
-      犬種：<%= post.dog_breed %>
-    <% end %>
+      </div>
+    </div>
+  </div>
 
 <% else %>
-    ※お気に入りをするには<br>
-    ログインまたは新規登録をしてください→
-  <%= link_to new_user_session_path do %>
-    <i class="fas fa-hand-holding-heart"></i>
-  <% end %>
-
-    <% posts.each do |post| %>
-      <%= link_to post_path(post) do %>
-        <% post.post_images.each do |image| %><br>
-          <%= attachment_image_tag image, :image, :fill, 200, 200 %>
-        <% end %>
+  <div class="row">
+    <div class="col-6 offset-3">
+      ※お気に入りをするには<br>
+      ログインまたは新規登録をしてください→
+      <%= link_to new_user_session_path do %>
+        <i class="fas fa-hand-holding-heart"></i>
       <% end %>
-      <%= image_tag '/assets/born_brown.jpeg', :size =>'20x20' %><%= post.favorites.count %>
-      <%= post.created_at.strftime('%Y/%m/%d') %><br>
-      <%= @salon_user.salon_name %><br>
-      犬種：<%= post.dog_breed %>
-    <% end %>
+      <div class="post-index">
+      <% posts.each do |post| %>
+        <div class="card mx-auto mt-4 shadow-lg" style="width: 202px">
+          <%= link_to post_path(post) do %>
+            <% post.post_images.each do |image| %><br>
+              <%= attachment_image_tag image, :image, :fill, 200, 200 %>
+              <% break %>
+            <% end %>
+          <% end %>
+          <div class="card-body">
+            <%= image_tag '/assets/born_brown.jpeg', :size =>'20x20' %><%= post.favorites.count %><br>
+            <%= post.created_at.strftime('%Y/%m/%d') %><br>
+            <%= @salon_user.salon_name %><br>
+            犬種：<%= post.dog_breed %>
+          </div>
+        </div>
+      <% end %>
+      </div>
+    </div>
+  </div>
 <% end %>

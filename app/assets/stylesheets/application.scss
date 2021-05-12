@@ -32,11 +32,13 @@
  .btn-dark {
   background-color: #73646A;
   border-color: #73646A;
+  color: #fff;
 }
 
  .btn-dark:hover {
   background-color: #5f5358;
   border-color: #5f5358;
+  color: #fff;
 }
 
  .btn-secondary {
@@ -316,6 +318,13 @@ th.table-second {
 .card-header {
  background-color: #CFB1B5;
 }
+
+.post-index {
+ width: 650px;
+ display: flex;
+ flex-wrap: wrap;
+}
+
 
 footer {
  width: 100%;
