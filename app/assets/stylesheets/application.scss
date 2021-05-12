@@ -27,6 +27,7 @@
  .btn-info {
   background-color: #98D4CC;
   border-color: #98D4CC;
+  color: #fff;
 }
 
  .btn-dark {
@@ -57,7 +58,7 @@
 
  .error-message {
   color: red;
-  font-size: 10px;
+  font-size: 12px;
  }
 
  .title-background {
@@ -301,12 +302,12 @@ th.table-second {
 }
 
 .slick-next {
-  right: 10px !important;
+  right: -30px !important;
   z-index: 100;
  }
 
 .slick-prev {
-  left: 10px !important;
+  left: -30px !important;
   z-index: 100;
  }
 

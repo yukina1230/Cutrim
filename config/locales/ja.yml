@@ -6,6 +6,12 @@ ja:
         restrict_dependent_destroy:
           has_one: "%{record}が存在しているので削除できません"
           has_many: "%{record}が存在しているので削除できません"
+    attributes:
+      reservation:
+        dog_name: "ペットの名前"
+        dog_breed: "犬種"
+        dog_birth: "ペットの誕生日"
+        menu: "メニュー"
   date:
     abbr_day_names:
     - 日

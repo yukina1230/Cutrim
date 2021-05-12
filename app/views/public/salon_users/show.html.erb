@@ -60,7 +60,6 @@
       </div>
     </div>
     <div id="tab3" class="tab">
-      <% @salon_user.menus.each do |menu| %>
       <table class="table-layout">
         <thead>
           <tr>
@@ -69,6 +68,7 @@
             <th>金額</th>
           </tr>
         </thead>
+        <% @salon_user.menus.each do |menu| %>
         <tbody>
           <tr>
             <td><%= menu.name %></td>
@@ -76,8 +76,8 @@
             <td><%= menu.amount %>円（税込）</td>
           </tr>
         </tbody>
+        <% end %>
       </table>
-      <% end %>
     </div>
   </div>
 </div>

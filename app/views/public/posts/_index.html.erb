@@ -7,6 +7,7 @@
           <%= link_to post_path(post) do %>
             <% post.post_images.each do |image| %><br>
               <%= attachment_image_tag image, :image, :fill, 200, 200 %>
+              <% break %>
             <% end %>
           <% end %>
           <div class="card-body">
@@ -14,12 +15,12 @@
               <%= link_to post_favorites_path(post), method: :delete do %>
                 <%= image_tag '/assets/born_brown.jpeg', :size =>'20x20' %>
               <% end %>
-              <%= post.favorites.count %>
+              <%= post.favorites.count %><br>
             <% else %>
               <%= link_to post_favorites_path(post), method: :post do %>
                 <%= image_tag '/assets/born_white.jpeg', :size =>'20x20' %>
               <% end %>
-              <%= post.favorites.count %>
+              <%= post.favorites.count %><br>
             <% end %>
             <%= post.created_at.strftime('%Y/%m/%d') %><br>
             <%= @salon_user.salon_name %><br>

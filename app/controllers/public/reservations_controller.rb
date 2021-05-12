@@ -1,4 +1,5 @@
 class Public::ReservationsController < ApplicationController
+  before_action :authenticate_user!
 
   def index
     @reservations = Reservation.all.where("day >= ?", Date.current).where("day < ?", Date.current >> 3)

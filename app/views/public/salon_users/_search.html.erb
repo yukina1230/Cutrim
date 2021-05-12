@@ -3,7 +3,7 @@
     <div class="mt-3 mb-3">
       <%= form_with url: search_salon_users_path, local: true, method: :get do |f| %>
         <%= f.collection_select :search, JpPrefecture::Prefecture.all, :name, :name %>
-        <%= f.submit "検索", class: "btn btn-dark" %>
+        <%= f.submit "検索", class: "btn btn-info" %>
       <% end %>
     </div>
   </div>

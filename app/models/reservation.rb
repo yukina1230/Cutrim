@@ -11,6 +11,7 @@ class Reservation < ApplicationRecord
     validates :dog_breed
     validates :dog_birth
     validates :dog_gender
+    validates :menu
   end
 
 

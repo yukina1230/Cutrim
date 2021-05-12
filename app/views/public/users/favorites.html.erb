@@ -1,14 +1,29 @@
 <% if @favorite_list.present? %>
-  <% @favorite_list.each do |favorite| %>
-    <%= link_to post_path(favorite) do %>
-      <% favorite.post_images.each do |image| %><br>
-        <%= attachment_image_tag image, :image, :fill, 200, 200 %>
-      <% end %>
-    <% end %>
-    <%= favorite.created_at.strftime('%Y/%m/%d') %>
-    犬種：<%= favorite.dog_breed %>
-    説明：<%= favorite.caption %>
-  <% end %>
+  <div class="row">
+    <div class="col-6 offset-3">
+      <div class="post-index">
+        <% @favorite_list.each do |favorite| %>
+          <div class="card mx-auto mt-4 shadow-lg" style="width: 202px">
+            <%= link_to post_path(favorite) do %>
+              <% favorite.post_images.each do |image| %><br>
+                <%= attachment_image_tag image, :image, :fill, 200, 200 %>
+                <% break %>
+              <% end %>
+            <% end %>
+            <div class="card-body">
+              <%= favorite.created_at.strftime('%Y/%m/%d') %><br>
+              犬種：<%= favorite.dog_breed %><br>
+              説明：<%= favorite.caption %><br>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
 <% else %>
-  <p>お気に入りの投稿はまだありません。</p>
+  <div class="row mt-5 mb-5">
+    <div class="col-4 offset-4">
+      <p class="h4">お気に入りの投稿はまだありません。</p>
+    </div>
+  </div>
 <% end %>

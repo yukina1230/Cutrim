@@ -1,9 +1,19 @@
-<div class="container">
-  <div class="row">
-    <div class="col-12">
-      <h1>Reserve</h1>
+
+  <div class="row mt-3">
+    <div class="col-4 offset-3">
+      <span class="title-background">Reserve</span>
     </div>
-    <div class="col-5">
+  </div>
+  <div class="row mt-3">
+    <div class="col-5 offset-3">
+      <div class="error-message">
+        <% if @reservation.errors.any? %>
+          <%= @reservation.errors.count %>件のエラーが発生しました<br>
+          <% @reservation.errors.full_messages.each do |message| %>
+            ・<%= message %><br>
+          <% end %>
+        <% end %>
+      </div>
       <%= form_with model: @reservation, url:salon_user_reservations_path, local:true do |f| %>
         <div class="salon_name form-group">
           <label for="reservation_dog_name">サロン</label>
@@ -30,23 +40,23 @@
           <%#= f.text_field :phone, class: 'form-control', value: current_user.phone, readonly: true %>
         </div>
         <div class="dog_name form-group">
-          <%= f.label :dog_name, 'ペットの名前' %>
+          <%= f.label :dog_name, 'ペットの名前' %><span class="badge badge-danger">必須</span>
           <%= f.text_field :dog_name, class: 'form-control' %>
         </div>
         <div class="dog_gender form-group">
-          <%= f.label :dog_gender, 'ペットの性別' %>
+          <%= f.label :dog_gender, 'ペットの性別' %><span class="badge badge-danger">必須</span>
           <%= f.select :dog_gender, Reservation.dog_genders.keys, {}, class: 'form-control' %>
         </div>
         <div class="dog_birth form-group">
-          <%= f.label :dog_birth, 'ペットの誕生日' %><br>
+          <%= f.label :dog_birth, 'ペットの誕生日' %><span class="badge badge-danger">必須</span><br>
           <%= f.date_field :dog_birth , class: 'form-control'%>
         </div>
         <div class="dog_breed form-group">
-          <%= f.label :dog_breed, '犬種' %>
+          <%= f.label :dog_breed, '犬種' %><span class="badge badge-danger">必須</span>
           <%= f.text_field :dog_breed, class: 'form-control' %>
         </div>
         <div class="menu form-group">
-          <%= f.label :menu, 'メニュー' %><br>
+          <%= f.label :menu, 'メニュー' %><span class="badge badge-danger">必須</span><br>
           <%= f.select :menu, options_from_collection_for_select(@salon_user.menus, :name, :name), class: 'form-control', prompt: "メニューを選択してください" %>
         </div>
         <div class="image form-group">
@@ -67,10 +77,14 @@
         <%= f.hidden_field :start_time, value: @start_time %>
         <%= f.hidden_field :salon_user_id, value: @salon_user.id %>
         <div class="submit">
-        <%= f.submit '予約する' %>
+          <%= f.submit '予約する', class: "btn btn-secondary mt-2" %>
         </div>
       <% end %>
     </div>
-    <%= link_to '戻る', salon_user_reservations_path %>
+  </div>
+  <div class="row mt-3">
+    <div class="col-2 offset-3">
+      <%= link_to '戻る', salon_user_reservations_path, class: "btn btn-info" %>
+    </div>
   </div>
 </div>
