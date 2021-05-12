@@ -298,6 +298,25 @@ th.table-second {
 	width: 400px;
 }
 
+.slick-next {
+  right: 10px !important;
+  z-index: 100;
+ }
+
+.slick-prev {
+  left: 10px !important;
+  z-index: 100;
+ }
+
+.slick-prev:before,
+.slick-next:before {
+  color: #CFB1B5;
+}
+
+.card-header {
+ background-color: #CFB1B5;
+}
+
 footer {
  width: 100%;
  height: 150px;

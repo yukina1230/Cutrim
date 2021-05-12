@@ -1,21 +1,43 @@
-<% posts.each do |post| %>
-  <%= link_to post_path(post) do %>
-    <% post.post_images.each do |image| %><br>
-      <%= attachment_image_tag image, :image, :fill, 200, 200 %>
+<% if user_signed_in? %>
+
+    <% posts.each do |post| %>
+      <%= link_to post_path(post) do %>
+        <% post.post_images.each do |image| %><br>
+          <%= attachment_image_tag image, :image, :fill, 200, 200 %>
+        <% end %>
+      <% end %>
+      <% if post.favorited_by?(current_user) %>
+        <%= link_to post_favorites_path(post), method: :delete do %>
+          <%= image_tag '/assets/born_brown.jpeg', :size =>'20x20' %>
+        <% end %>
+        <%= post.favorites.count %>
+      <% else %>
+        <%= link_to post_favorites_path(post), method: :post do %>
+          <%= image_tag '/assets/born_white.jpeg', :size =>'20x20' %>
+        <% end %>
+        <%= post.favorites.count %>
+      <% end %>
+      <%= post.created_at.strftime('%Y/%m/%d') %><br>
+      <%= @salon_user.salon_name %><br>
+      犬種：<%= post.dog_breed %>
     <% end %>
+
+<% else %>
+    ※お気に入りをするには<br>
+    ログインまたは新規登録をしてください→
+  <%= link_to new_user_session_path do %>
+    <i class="fas fa-hand-holding-heart"></i>
   <% end %>
-  <% if post.favorited_by?(current_user) %>
-    <%= link_to post_favorites_path(post), method: :delete do %>
-      <%= image_tag '/assets/born_brown.jpeg', :size =>'20x20' %>
+
+    <% posts.each do |post| %>
+      <%= link_to post_path(post) do %>
+        <% post.post_images.each do |image| %><br>
+          <%= attachment_image_tag image, :image, :fill, 200, 200 %>
+        <% end %>
+      <% end %>
+      <%= image_tag '/assets/born_brown.jpeg', :size =>'20x20' %><%= post.favorites.count %>
+      <%= post.created_at.strftime('%Y/%m/%d') %><br>
+      <%= @salon_user.salon_name %><br>
+      犬種：<%= post.dog_breed %>
     <% end %>
-    <%= post.favorites.count %>
-  <% else %>
-    <%= link_to post_favorites_path(post), method: :post do %>
-      <%= image_tag '/assets/born_white.jpeg', :size =>'20x20' %>
-    <% end %>
-    <%= post.favorites.count %>
-  <% end %>
-  <%= post.created_at.strftime('%Y/%m/%d') %>
-  <%= @salon_user.salon_name %>
-  犬種：<%= post.dog_breed %>
 <% end %>
