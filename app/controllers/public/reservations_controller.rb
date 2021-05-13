@@ -41,8 +41,7 @@ class Public::ReservationsController < ApplicationController
  def destroy
    @reservation = Reservation.find(params[:id])
    if @reservation.destroy
-      flash[:success] = "予約を削除しました。"
-      redirect_to salon_user_reservations_path
+      redirect_to salon_user_reservations_path, success: '予約のキャンセルが完了しました。'
    else
       render :show
    end

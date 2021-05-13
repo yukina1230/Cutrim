@@ -5,6 +5,8 @@ document.addEventListener("turbolinks:load"
   $(function() {
     $('#slider').slick({
         dots: true,
+        accessibility: true,
+        autoplay: true,
     });
   });
 })

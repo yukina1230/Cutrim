@@ -1,83 +1,91 @@
-<div class="container">
-  <div class="row">
-    <div class="col">
-      <h1>Reservations Detail</h1>
-    </div>
-    <div class="col-10">
-      <h3>お客様情報</h3>
-      <table>
-        <thead>
-          <th></th>
-          <th></th>
-        </thead>
-        <tbody>
-          <tr>
-            <td>ご予約者様</td>
-            <td><%= current_user.family_name %><%= current_user.first_name %></td>
-          </tr>
-          <tr>
-            <td>電話番号</td>
-            <td><%= current_user.phone %></td>
-          </tr>
-          <tr>
-            <td>住所</td>
-            <td>
-              〠<%= current_user.postal_code %><br>
-              <%= current_user.prefecture %><%= current_user.address_city %><br>
-              <%= current_user.address_building %>
-            </td>
-          </tr>
-          <tr>
-            <td>メニュー</td>
-            <td><%= @reservation.menu %></td>
-          </tr>
-          <tr>
-            <td>来店日時</td>
-            <td><%= @reservation.day %>,<%= @reservation.time %></td>
-          </tr>
-          <tr>
-            <td>イメージ画像</td>
-            <td>
-              <% @reservation.reservation_images.each do |image| %>
-                <%= attachment_image_tag image, :image, :fill, 200, 200 %>
-              <% end %>
-            </td>
-          </tr>
-          <tr>
-            <td>要望</td>
-            <td><%= @reservation.request %></td>
-          </tr>
-        </tbody>
-      </table>
-      <h3>ペットの情報</h3>
-      <table>
-        <thead>
-          <th></th>
-          <th></th>
-        </thead>
-        <tbody>
-          <tr>
-            <td>名前</td>
-            <td><%= @reservation.dog_name %></td>
-          </tr>
-          <tr>
-            <td>性別</td>
-            <td><%= @reservation.dog_gender %></td>
-          </tr>
-          <tr>
-            <td>生年月日</td>
-            <td><%= @reservation.dog_birth %></td>
-          </tr>
-          <tr>
-            <td>犬種</td>
-            <td><%= @reservation.dog_breed %></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    <div class="col">
-      <%= link_to '予約一覧へ' %>
-      <%= link_to '予約をキャンセル', salon_user_reservation_path(@reservation), method: :delete, "data-confirm" => "本当にキャンセルしますか？" %>
-    </div>
+<div class="row mt-3 mb-3">
+  <div class="col-3 offset-2">
+    <span class="title-background">予約詳細</span>
+  </div>
+</div>
+<div class="row">
+  <div class="col-2 offset-2">
+    <p class="mt-2 ml-4"><strong>お客様情報</strong></p>
+  </div>
+</div>
+<div class="row mt-1">
+  <div class="col-6 offset-2">
+    <table class="table table-bordered">
+      <tbody>
+        <tr>
+          <td style="width: 20%">ご予約者様</td>
+          <td><%= current_user.family_name %><%= current_user.first_name %></td>
+        </tr>
+        <tr>
+          <td>電話番号</td>
+          <td><%= current_user.phone %></td>
+        </tr>
+        <tr>
+          <td>住所</td>
+          <td>
+            〠<%= current_user.postal_code %><br>
+            <%= current_user.prefecture %><%= current_user.address_city %><br>
+            <%= current_user.address_building %>
+          </td>
+        </tr>
+        <tr>
+          <td>メニュー</td>
+          <td><%= @reservation.menu %></td>
+        </tr>
+        <tr>
+          <td>来店日時</td>
+          <td><%= @reservation.day %>,<%= @reservation.time %></td>
+        </tr>
+        <tr>
+          <td>イメージ画像</td>
+          <td>
+            <% @reservation.reservation_images.each do |image| %>
+              <%= attachment_image_tag image, :image, :fill, 200, 200 %>
+            <% end %>
+          </td>
+        </tr>
+        <tr>
+          <td>要望</td>
+          <td><%= @reservation.request %></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<div class="row">
+  <div class="col-2 offset-2">
+    <p class="mt-2 ml-4"><strong>ペットの情報</strong></p>
+  </div>
+</div>
+<div class="row mt-1">
+  <div class="col-6 offset-2">
+    <table class="table table-bordered">
+      <tbody>
+        <tr>
+          <td style="width: 20%">名前</td>
+          <td><%= @reservation.dog_name %></td>
+        </tr>
+        <tr>
+          <td>性別</td>
+          <td><%= @reservation.dog_gender %></td>
+        </tr>
+        <tr>
+          <td>生年月日</td>
+          <td><%= @reservation.dog_birth %></td>
+        </tr>
+        <tr>
+          <td>犬種</td>
+          <td><%= @reservation.dog_breed %></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<div class="row">
+  <div class="col-2 offset-3">
+    <%= link_to '予約一覧へ',users_reservations_path, class: "btn btn-info" %>
+  </div>
+  <div class="col-2">
+    <%= link_to '予約をキャンセル', users_reservations_path, method: :delete, "data-confirm" => "本当にキャンセルしますか？", class: "btn btn-danger" %>
   </div>
 </div>

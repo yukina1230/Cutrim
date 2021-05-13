@@ -84,12 +84,68 @@
   background-size: cover;
   background-position: center;
   text-align: center;
-  line-height: 200px;
+  line-height: 70px;
  }
 
 header {
  width: 100%;
  height: 120px;
+}
+
+.main-text {
+  font-size: 30px;
+  -webkit-animation: text-focus-in 2.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+          animation: text-focus-in 2.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+}
+
+@-webkit-keyframes text-focus-in {
+  0% {
+    -webkit-filter: blur(12px);
+            filter: blur(12px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-filter: blur(0px);
+            filter: blur(0px);
+    opacity: 1;
+  }
+}
+@keyframes text-focus-in {
+  0% {
+    -webkit-filter: blur(12px);
+            filter: blur(12px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-filter: blur(0px);
+            filter: blur(0px);
+    opacity: 1;
+  }
+}
+
+.border{
+	position: relative;
+	text-align: center;
+	font-size: 18px;
+}
+
+.border:before{
+	content: '';
+	position: absolute;
+	left: 50%;
+	bottom: 0;
+	border-bottom: solid 2px #73646A;
+	transform: translateX(-50%);/*中央寄せ*/
+	animation: border_anim 2s linear forwards;
+}
+
+@keyframes border_anim {
+	0%{
+		width: 100%;
+	}
+	100%{
+		width: 200px;
+	}
 }
 
 .main-about-image {
@@ -301,6 +357,16 @@ th.table-second {
 	width: 400px;
 }
 
+.slider{
+  display: none;
+}
+
+.slick img {
+    width: 100%;
+    height: 50vw;
+    object-fit: cover;
+}
+
 .slick-next {
   right: -30px !important;
   z-index: 100;
@@ -326,6 +392,9 @@ th.table-second {
  flex-wrap: wrap;
 }
 
+.flash-message {
+ color: #98D4CC;
+}
 
 footer {
  width: 100%;

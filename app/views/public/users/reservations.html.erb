@@ -1,26 +1,63 @@
-<h1>現在の予約</h1>
-<% if @reservations.blank? %>
-  <p>予約はありません。</p>
-<% else %>
-  <% @reservations.each do |reservation| %>
-    <%= attachment_image_tag reservation.salon_user, :salon_image %><br>
-    <%= reservation.salon_user.salon_name %><br>
-    〠<%= reservation.salon_user.postal_code %><br>
-    <%= reservation.salon_user.prefecture %><%= reservation.salon_user.address_city %><%= reservation.salon_user.address_building %><br>
-    来店日時：<%= reservation.day %>
-    <%= reservation.time %><br>
-    <%= link_to '詳細', salon_user_reservation_path(@salon_user, reservation) %><br>
-  <% end %>
-<% end %>
+<div class="row mt-3 mb-2">
+  <div class="col-3 offset-2">
+    <div class="flash-message">
+      <%= flash[:success] %>
+    </div>
+  </div>
+</div>
+<div class="row mt-3 mb-3">
+  <div class="col-3 offset-2">
+    <span class="title-background">現在の予約</span>
+  </div>
+</div>
+<div class="row">
+  <div class="col-8 offset-1">
+    <% if @reservations.blank? %>
+      <p>予約はありません。</p>
+  </div>
+    <% else %>
+      <% @reservations.each do |reservation| %>
+      <div class="row border-bottom mt-3 pb-3 pt-3">
+        <div class="col-4 offset-1">
+          <%= attachment_image_tag reservation.salon_user, :salon_image, :fill, 300, 200, fallback: "no_image.jpg",size:'300x200' %>
+        </div>
+        <div class="col-5">
+          <h4><%= reservation.salon_user.salon_name %></h4>
+          〠<%= reservation.salon_user.postal_code %><br>
+          <%= reservation.salon_user.prefecture_code %><%= reservation.salon_user.address_city %><%= reservation.salon_user.address_building %><br>
+          来店日時：<%= reservation.day %><%= reservation.time %><br>
+          ☎︎<%= reservation.salon_user.phone %><br>
+          <%= link_to '詳細', salon_user_reservation_path(@salon_user, reservation), class: "btn btn-info" %>
+        </div>
+      </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>
 
-<h1>過去の予約</h1>
-<% if @visit_historys.blank? %>
-  <p>予約履歴はありません。</p>
-<% else %>
-  <% @visit_historys.each do |visit_history| %>
-    <%= visit_history.salon_user.salon_image %>
-    <%= visit_history.salon_user.salon_name %>
-    <%= visit_history.day %>
-    <%= visit_history.time %>
-  <% end %>
-<% end %>
+<div class="row mt-3 mb-3">
+  <div class="col-3 offset-2">
+    <span class="title-background">過去の予約</span>
+  </div>
+</div>
+<div class="row">
+  <div class="col-8 offset-1">
+    <% if @visit_historys.blank? %>
+      <p>予約履歴はありません。</p>
+  </div>
+    <% else %>
+      <% @visit_historys.each do |visit_history| %>
+      <div class="row border-bottom mt-3 pb-3 pt-3">
+        <div class="col-4 offset-1">
+          <%= attachment_image_tag visit_history.salon_user, :salon_image, :fill, 300, 200, fallback: "no_image.jpg",size:'300x200' %>
+        </div>
+        <div class="col-5">
+          <h4><%= visit_history.salon_user.salon_name %></h4>
+          <%= visit_history.day %><br>
+          <%= visit_history.time %><br>
+        </div>
+      </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>

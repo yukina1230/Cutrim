@@ -1,64 +1,68 @@
-<h2>会員情報編集</h2>
-
-<%= form_with model: @user, url: update_infomation_path, local: true do |f| %>
-  <table>
-    <thead>
-      <th></th>
-      <th></th>
-      <th></th>
-    </thead>
-    <tbody>
-      <tr>
-        <td>名前</td>
-        <td>
-          <%= f.text_field :family_name, autofocus: true %>
-        </td>
-        <td>
-          <%= f.text_field :first_name, autofocus: true %>
-        </td>
-      </tr>
-      <tr>
-        <td>フリガナ</td>
-        <td>
-          <%= f.text_field :family_name_kana, autofocus: true %>
-        </td>
-        <td>
-          <%= f.text_field :first_name_kana, autofocus: true %>
-        </td>
-      </tr>
-      <tr>
-        <td><%= f.label :nickname, "ニックネーム" %></td>
-        <td><%= f.text_field :nickname, autofocus: true %></td>
-      </tr>
-      <tr>
-        <td><%= f.label :email, "メールアドレス" %></td>
-        <td><%= f.email_field :email, autocomplete: "email" %></td>
-      </tr>
-      <tr>
-        <td><%= f.label :phone, "電話番号（ハイフンなし）" %></td>
-        <td><%= f.text_field :phone, autofocus: true %></td>
-      </tr>
-      <tr>
-        <td><%= f.label :postal_code, "郵便番号" %></td>
-        <td><%= f.text_field :postal_code, autofocus: true %></td>
-      </tr>
-      <tr>
-        <td><%= f.label :prefecture_code, "都道府県" %></td>
-        <td><%= f.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :name, :name %></td>
-      </tr>
-      <tr>
-        <td><%= f.label :address_city, "住所" %></td>
-        <td><%= f.text_field :address_city, autofocus: true %></td>
-      </tr>
-      <tr>
-        <td><%= f.label :address_building, "ビル名・マンション名" %></td>
-        <td><%= f.text_field :address_building, autofocus: true %></td>
-      </tr>
-      <tr>
-        <td></td>
-        <td><%= f.submit "編集内容を保存", class: "btn btn-info" %></td>
-      </tr>
-    </tbody>
-  </table>
-<% end %>
+<div class="row mt-3 mb-3">
+  <div class="col-3 offset-3">
+    <span class="title-background">会員情報編集</span>
+  </div>
+</div>
+<div class="row mt-3">
+    <div class="col-8 offset-2">
+      <div class="error-message">
+        <% if @user.errors.any? %>
+          <%= @user.errors.count %>件のエラーが発生しました<br>
+          <% @user.errors.full_messages.each do |message| %>
+            ・<%= message %><br>
+          <% end %>
+        <% end %>
+      </div>
+      <%= form_with model: @user, url: update_infomation_path, local: true do |f| %>
+      <table class="table table-borderless">
+        <tbody>
+          <tr>
+            <td style="width: 30%">名前</td>
+            <td>
+              <%= f.text_field :family_name, autofocus: true %> <%= f.text_field :first_name, autofocus: true %>
+            </td>
+          </tr>
+          <tr>
+            <td>フリガナ</td>
+            <td>
+              <%= f.text_field :family_name_kana, autofocus: true %> <%= f.text_field :first_name_kana, autofocus: true %>
+            </td>
+          </tr>
+          <tr>
+            <td><%= f.label :nickname, "ニックネーム" %></td>
+            <td><%= f.text_field :nickname, autofocus: true %></td>
+          </tr>
+          <tr>
+            <td><%= f.label :email, "メールアドレス" %></td>
+            <td><%= f.email_field :email, autocomplete: "email" %></td>
+          </tr>
+          <tr>
+            <td><%= f.label :phone, "電話番号（ハイフンなし）" %></td>
+            <td><%= f.text_field :phone, autofocus: true %></td>
+          </tr>
+          <tr>
+            <td><%= f.label :postal_code, "郵便番号" %></td>
+            <td><%= f.text_field :postal_code, autofocus: true %></td>
+          </tr>
+          <tr>
+            <td><%= f.label :prefecture_code, "都道府県" %></td>
+            <td><%= f.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :name, :name %></td>
+          </tr>
+          <tr>
+            <td><%= f.label :address_city, "住所" %></td>
+            <td><%= f.text_field :address_city, autofocus: true, :size => "60*30" %></td>
+          </tr>
+          <tr>
+            <td><%= f.label :address_building, "ビル名・マンション名" %></td>
+            <td><%= f.text_field :address_building, autofocus: true, :size => "60*30" %></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td><%= f.submit "編集内容を保存", class: "btn btn-info" %></td>
+          </tr>
+        </tbody>
+      </table>
+    <% end %>
+  </div>
+</div>
 
