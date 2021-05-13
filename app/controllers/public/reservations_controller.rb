@@ -21,8 +21,7 @@ class Public::ReservationsController < ApplicationController
  def create
    @reservation = current_user.reservations.new(reservation_params)
    if @reservation.save
-     flash[:success] = "予約が完了しました。"
-     redirect_to users_reservations_path
+     redirect_to users_reservations_path, success: '予約が完了しました。'
    else
      @reservation.reservation_images.build
      @day = reservation_params[:day]

@@ -20,6 +20,14 @@
 
  @charset "UTF-8";
 
+ header, .main, footer, .main-text, .row {
+  font-family: 'Amatic SC', 'Bad Script', 'Caveat', 'Kalam', cursive, 'M PLUS Rounded 1c', 'Nanum Gothic', sans-serif;
+}
+
+header, .main, footer, .main-text, .row {
+ font-size: 20px;
+}
+
  body {
 	color: #73646A;
 }
@@ -55,6 +63,42 @@
  .text-dark {
   color: #73646A !important;
  }
+
+ .navbar-nav li a{
+    /*線の基点とするためrelativeを指定*/
+	position: relative;
+}
+
+.navbar-nav li.current a,
+.navbar-nav li a:hover{
+	color:#CFB1B5;
+}
+
+.navbar-nav li a::after {
+    content: '';
+    /*絶対配置で線の位置を決める*/
+    position: absolute;
+    bottom: 0;
+    left: 10%;
+    /*線の形状*/
+    width: 80%;
+    height: 2px;
+    background:#CFB1B5;
+    /*アニメーションの指定*/
+    transition: all .3s;
+    transform: scale(0, 1);/*X方向0、Y方向1*/
+    transform-origin: center top;/*上部中央基点*/
+}
+
+/*現在地とhoverの設定*/
+.navbar-nav li.current a::after,
+.navbar-nav li a:hover::after {
+    transform: scale(1, 1);/*X方向にスケール拡大*/
+}
+
+.fa-heart {
+ color: #CFB1B5;
+}
 
  .error-message {
   color: red;
