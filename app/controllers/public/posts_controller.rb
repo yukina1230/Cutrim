@@ -10,8 +10,8 @@ class Public::PostsController < ApplicationController
   end
 
   def search
-    @search = params[:search]
-    @posts = Post.search(params[:search])
+    @search = params[:dog_breed]
+    @posts = Post.search(params[:dog_breed])
     @salon_user = SalonUser.find_by(params[:salon_name])
   end
 

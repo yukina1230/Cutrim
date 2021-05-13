@@ -106,7 +106,7 @@ header, .main, footer, .main-text, .row {
  }
 
  .title-background {
-  font-size: 20px;
+  font-size: 25px;
   background-color: #d5c5c3;
   text-align: center;
   line-height: 30px;
@@ -167,23 +167,23 @@ header {
   }
 }
 
-.border{
+.line {
 	position: relative;
 	text-align: center;
 	font-size: 18px;
 }
 
-.border:before{
+.line:before{
 	content: '';
 	position: absolute;
 	left: 50%;
 	bottom: 0;
-	border-bottom: solid 2px #73646A;
+	border-bottom: solid 2px #CFB1B5;
 	transform: translateX(-50%);/*中央寄せ*/
-	animation: border_anim 2s linear forwards;
+	animation: line_anim 2s linear forwards;
 }
 
-@keyframes border_anim {
+@keyframes line_anim {
 	0%{
 		width: 100%;
 	}
@@ -209,7 +209,7 @@ header {
 }
 
 .about-left-image {
- background-image: url(img/cut_shihtzu2.jpg);
+ background-image: url(img/cut_shihtzu5.jpg);
  width: 400px;
  height: 500px;
  background-position: bottom;
@@ -221,6 +221,14 @@ header {
  width: 400px;
  height: 500px;
  background-position: center;
+ background-size: cover;
+}
+
+.info-left-image {
+ background-image: url(img/cut_shihtzu2.jpg);
+ width: 600px;
+ height: 500px;
+ background-position: bottom;
  background-size: cover;
 }
 

@@ -1,24 +1,34 @@
+<div class="row mt-3 mb-2">
+  <div class="col-3 offset-2">
+    <div class="flash-message">
+      <%= flash[:notice] %>
+    </div>
+  </div>
+</div>
 <%= render 'form', menu: @menu %>
-<h2>メニュー一覧</h2>
-<table>
-  <thead>
-    <th></th>
-    <th></th>
-    <th></th>
-  </thead>
-  <% @menus.each do |menu| %>
-  <tbody>
-    <tr>
-      <td><%= menu.name %></td>
-      <td>
-        説明：<%= menu.caption %><br>
-        金額：<%= menu.amount %>円（税込）
-      </td>
-      <td>
-        <%= link_to '編集', edit_admin_menu_path(menu), class: "btn btn-info" %>
-        <%= link_to '削除', admin_menu_path(menu), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn btn-danger" %>
-      </td>
-    </tr>
-  </tbody>
-  <% end %>
-</table>
+<div class="row mt-3 mb-3">
+  <div class="col-3 offset-3">
+    <span class="title-background">メニュー一覧</span>
+  </div>
+</div>
+<div class="row mt-3">
+  <div class="col-8 offset-2">
+    <table class="table table-bordered">
+      <% @menus.each do |menu| %>
+     <tbody>
+        <tr>
+          <td style="width: 20%"><%= menu.name %></td>
+          <td>
+            説明：<%= menu.caption %><br>
+            金額：<%= menu.amount %>円（税込）
+          </td>
+          <td style="width: 20%">
+            <%= link_to '編集', edit_admin_menu_path(menu), class: "btn btn-info" %>
+            <%= link_to '削除', admin_menu_path(menu), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn btn-danger" %>
+          </td>
+        </tr>
+      </tbody>
+      <% end %>
+    </table>
+  </div>
+</div>

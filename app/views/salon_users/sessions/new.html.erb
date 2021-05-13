@@ -1,17 +1,19 @@
-<h2>ログイン</h2>
+<div class="row mt-5 mb-3">
+  <div class="col-5 mx-auto">
+    <span class="title-background">ログイン</span>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
- <div class="field">
-    <%= f.label :email, "メールアドレス" %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", :plaaceholder => "sample@example.com" %>
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <div class="field">
+        <%= f.label :email, "メールアドレス" %><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", :plaaceholder => "sample@example.com", :size => "40*30" %>
+      </div>
+      <div class="field">
+        <%= f.label :password, "パスワード" %><br />
+        <%= f.password_field :password, autocomplete: "current-password", :size => "40*30" %>
+      </div>
+      <div class="actions mt-3">
+        <%= f.submit "ログイン", class: "btn btn-dark" %>
+      </div>
+    <% end %>
   </div>
-
-  <div class="field">
-    <%= f.label :password, "パスワード" %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "ログイン", class: "btn btn-dark" %>
-  </div>
-<% end %>
+</div>

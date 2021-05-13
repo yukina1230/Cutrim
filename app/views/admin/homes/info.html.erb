@@ -1,12 +1,34 @@
-<h1>掲載をご希望のサロン様</h1>
-<h3>Cutrimを使用するメリット</h3>
+<div class="row mt-4">
+  <div class="col-5">
+    <div class="info-left-image"></div>
+  </div>
+  <div class="col-6 pt-2">
+    <h3 class="text-center">掲載をご希望のサロン様</h3>
+    <div class="line mb-5">
+      <h5 class="text-center">Cutrimを使用するメリット</h5>
+    </div>
+    <div class="fade-in-bottom-1">
+      <h5 class="text-center"><strong>🐾 無制限で写真・文章を掲載！</strong></h5>
+      <p class="text-center">
+        掲載する写真の枚数や文章の文字数に制限はありませんので、<br>
+        自由にサロンをPRできます。
+      </p>
+    </div>
+    <div class="fade-in-bottom-2">
+      <h5 class="text-center"><strong>🐾 投稿・予約を一括管理！</strong></h5>
+      <p class="text-center">
+        Cutrimではお客様から予約を受け付けることができるので、<br>
+        Cutrim上で投稿・予約の一括管理が可能です。
+      </p>
+    </div>
+    <div class="fade-in-bottom-3">
+      <div class="text-center mt-2">
+        <%= link_to "Cutrimに登録する", new_salon_user_registration_path, class: "btn btn-dark" %><br>
+      </div>
+      <div class="text-center mt-2">
+        <%= link_to "ログインする", new_salon_user_session_path, class: "btn btn-info" %>
+      </div>
+    </div>
+  </div>
+</div>
 
-<h5>無制限で写真・文章を掲載！</h5>
-<p>
-  掲載する写真の枚数や文章の文字数に制限はありませんので、自由にサロンをPRできます。
-</p>
-<h5>投稿・予約を一括管理！</h5>
-<p>
-  Cutrimではお客様から予約を受け付けることができるので、Cutrim上で投稿・予約の一括管理が可能です。
-</p>
-<%= link_to "Cutrimに登録する",new_salon_user_registration_path, class: "btn btn-dark" %>

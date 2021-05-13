@@ -12,6 +12,10 @@ ja:
         dog_breed: "犬種"
         dog_birth: "ペットの誕生日"
         menu: "メニュー"
+      menu:
+        name: "メニュー名"
+        caption: "メニュー説明"
+        amount: "金額"
   date:
     abbr_day_names:
     - 日

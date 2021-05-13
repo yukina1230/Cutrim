@@ -1,50 +1,66 @@
-<h2><%= @salon_user.salon_name %>様マイページ</h2>
-<p>登録情報</p>
-<%= link_to "編集する", admin_salon_users_edit_infomation_path(@salon_user), class: "btn btn-info" %><br>
+<div class="row mt-3 mb-2">
+  <div class="col-3 offset-2">
+    <div class="flash-message">
+      <%= flash[:notice] %>
+    </div>
+  </div>
+</div>
+<div class="row mt-3 mb-3">
+  <div class="col-3 offset-3">
+    <span class="title-background"><%= @salon_user.salon_name %>様マイページ</span>
+  </div>
+</div>
+<div class="row">
+  <div class="col-2 offset-2">
+    <p class="mt-2 ml-4"><strong>登録情報</strong></p>
+  </div>
+  <div class="col-2">
+    <%= link_to "編集する", admin_salon_users_edit_infomation_path(@salon_user), class: "btn btn-info" %>
+  </div>
+</div>
 
-<table>
-  <thead>
-    <th></th>
-    <th></th>
-  </thead>
-  <tbody>
-    <tr>
-      <td>サロン名</td>
-      <td><%= @salon_user.salon_name %></td>
-    </tr>
-    <tr>
-      <td>住所</td>
-      <td>
-        <%= @salon_user.postal_code %><br>
-        <%= @salon_user.prefecture_code %><%= @salon_user.address_city %><br>
-        <%= @salon_user.address_building %>
-      </td>
-    </tr>
-    <tr>
-      <td>電話番号</td>
-      <td><%= @salon_user.phone %></td>
-    </tr>
-    <tr>
-      <td>サロンイメージ画像</td>
-      <td><%= attachment_image_tag @salon_user, :salon_image %></td>
-    </tr>
-    <tr>
-      <td>紹介文</td>
-      <td><%= @salon_user.introduction %></td>
-    </tr>
-    <tr>
-      <td>営業日</td>
-      <td><%= @salon_user.business_day %></td>
-    </tr>
-    <tr>
-      <td>営業時間</td>
-      <td><%= @salon_user.business_start_time&.strftime('%H:%M') %><%= @salon_user.business_end_time&.strftime('%H:%M') %></td>
-    </tr>
-    <tr>
-      <td>メールアドレス</td>
-      <td><%= @salon_user.email %></td>
-    </tr>
-
-  </tbody>
-</table>
+<div class="row mt-3">
+  <div class="col-8 offset-2">
+    <table class="table table-bordered">
+      <tbody>
+        <tr>
+          <td style="width: 35%">サロン名</td>
+          <td><%= @salon_user.salon_name %></td>
+        </tr>
+        <tr>
+          <td>住所</td>
+          <td>
+            〠<%= @salon_user.postal_code %><br>
+            <%= @salon_user.prefecture_code %><%= @salon_user.address_city %><br>
+            <%= @salon_user.address_building %>
+          </td>
+        </tr>
+        <tr>
+          <td>電話番号</td>
+          <td><%= @salon_user.phone %></td>
+        </tr>
+        <tr>
+          <td>サロンイメージ画像</td>
+          <td><%= attachment_image_tag @salon_user, :salon_image %></td>
+        </tr>
+        <tr>
+          <td>紹介文</td>
+          <td><%= @salon_user.introduction %></td>
+        </tr>
+        <tr>
+          <td>営業日</td>
+          <td><%= @salon_user.business_day %></td>
+        </tr>
+        <tr>
+          <td>営業時間</td>
+          <td><%= @salon_user.business_start_time&.strftime('%H:%M') %><%= @salon_user.business_end_time&.strftime('%H:%M') %></td>
+        </tr>
+        <tr>
+          <td>メールアドレス</td>
+          <td><%= @salon_user.email %></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
 
