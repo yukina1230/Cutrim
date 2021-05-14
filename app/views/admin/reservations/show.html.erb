@@ -1,12 +1,21 @@
-<h1>予約詳細</h1>
-<table>
+<div class="row mt-3 mb-3">
+  <div class="col-3 offset-3">
+    <span class="title-background">予約詳細</span>
+  </div>
+</div>
+
+<div class="row mt-3 mb-3">
+  <div class="col-8 offset-2">
+<table class="table text-dark">
   <thead>
-    <th>予約内容</th>
-    <th></th>
+    <tr class="table-background">
+      <th>予約内容</th>
+      <th></th>
+    </tr>
   </thead>
   <tbody>
     <tr>
-      <td>ご予約者様</td>
+      <td style="width: 20%">ご予約者様</td>
       <td><%= @reservation.user.family_name %><%= @reservation.user.first_name %>(<%= @reservation.user.family_name_kana %><%= @reservation.user.first_name_kana %>)</td>
     </tr>
     <tr>
@@ -31,10 +40,12 @@
     </tr>
   </tbody>
 </table>
-<table>
+<table class="table text-dark">
   <thead>
-    <th>ペット情報</th>
-    <th></th>
+    <tr class="table-background">
+      <th style="width: 20%">ペット情報</th>
+      <th></th>
+    </tr>
   </thead>
   <tbody>
     <tr>
@@ -55,10 +66,12 @@
     </tr>
   </tbody>
 </table>
-<table>
+<table class="table text-dark">
   <thead>
-    <th>ご要望</th>
-    <th></th>
+    <tr class="table-background">
+      <th style="width: 20%">ご要望</th>
+      <th></th>
+    </tr>
   </thead>
   <tbody>
     <tr>
@@ -75,3 +88,6 @@
     </tr>
   </tbody>
 </table>
+
+  </div>
+</div>

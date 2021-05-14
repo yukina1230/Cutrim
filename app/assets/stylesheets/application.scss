@@ -60,6 +60,11 @@ header, .main, footer, .main-text, .row {
   border-color: #c19aa0;
  }
 
+ .table-background {
+  background-color: #CFB1B5;
+  border-color: #CFB1B5;
+ }
+
  .text-dark {
   color: #73646A !important;
  }
@@ -448,10 +453,34 @@ th.table-second {
  color: #98D4CC;
 }
 
+.salon_user-post {
+ display: flex;
+ width: 80%;
+ height: 205px;
+ background-color: #CFB1B5;
+ margin: 20px auto;
+ border: solid 2px #73646A;
+}
+
+.salon_user-post-detail {
+ padding-left: 10px;
+ padding-top: 10px;
+ width: 100%;
+}
+
+.salon_user-post-link {
+ float: right;
+ padding-right: 10px;
+}
+
+.post_image-text-size {
+ font-size: 15px;
+}
+
 footer {
  width: 100%;
- height: 150px;
- line-height: 100px;
+ height: 200px;
+ line-height: 200px;
 }
 
 #back {

@@ -6,11 +6,11 @@
     <%= form_with model: @user, url: user_session_path, local: true do |f| %>
       <div class="field">
         <%= f.label :email, "メールアドレス" %><br />
-        <%= f.email_field :email, autofocus: true, autocomplete: "email", :plaaceholder => "sample@example.com" %>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", :plaaceholder => "sample@example.com", :size => "40*30" %>
       </div>
       <div class="field">
         <%= f.label :password, "パスワード" %><br />
-        <%= f.password_field :password, autocomplete: "current-password" %>
+        <%= f.password_field :password, autocomplete: "current-password", :size => "40*30" %>
       </div><br>
       <div class="actions">
         <%= f.submit "ログイン", class: "btn btn-dark" %>
@@ -26,7 +26,7 @@
     <div class="mt-5">
       <span class="title-background">
       掲載をご希望のサロン様は
-      <%= link_to "こちら", admin_homes_info_path %>
+      <%= link_to "こちら>", admin_homes_info_path, class: "btn btn-dark" %>
     </span>
     </div>
   </div>

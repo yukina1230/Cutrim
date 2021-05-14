@@ -1,13 +1,21 @@
-<%= render 'search' %>
-<h1><%= @search %>の予約一覧</h1>
-<% if @reservations.exists? %>
-  <% @reservations.each do |reservation| %>
-    <%= link_to admin_reservation_path(reservation) do %>
-      予約ID：<%= reservation.id %><br>
-      来店日時：<%= reservation.day %>,<%= reservation.time %><br>
-      ご予約者様：<%= reservation.user.family_name %><%= reservation.user.first_name %><br>
+<div class="row mt-4">
+  <div class="col-2 border-right offset-1">
+    <%= render 'search' %>
+  </div>
+  <div class="col-8">
+    <span class="title-background"><%= @search %>の予約一覧</span><br>
+    <% if @reservations.exists? %>
+      <% @reservations.each do |reservation| %>
+        <%= link_to admin_reservation_path(reservation) do %>
+          <div class="border mb-2 mt-3">
+            予約ID：<%= reservation.id %>
+            来店日時：<%= reservation.day %>,<%= reservation.time %>
+            ご予約者様：<%= reservation.user.family_name %><%= reservation.user.first_name %>
+          </div>
+        <% end %>
+      <% end %>
+    <% else %>
+      <p class="mt-3"><%= @search %>の予約はありません。</p>
     <% end %>
-  <% end %>
-<% else %>
-  <p><%= @search %>の予約はありません。</p>
-<% end %>
+  </div>
+</div>

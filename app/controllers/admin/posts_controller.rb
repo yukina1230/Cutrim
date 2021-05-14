@@ -6,8 +6,11 @@ class Admin::PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.salon_user_id = current_salon_user.id
-    @post.save
-    redirect_to admin_posts_path
+    if @post.save
+      redirect_to admin_posts_path, notice: '投稿が完了しました。'
+    else
+      render :new
+    end
   end
 
   def index
@@ -20,14 +23,17 @@ class Admin::PostsController < ApplicationController
 
   def update
     @post = Post.find(params[:id])
-    @post.update(post_params)
-    redirect_to admin_posts_path
+    if @post.update(post_params)
+      redirect_to admin_posts_path, notice: '更新が完了しました。'
+    else
+      render :edit
+    end
   end
 
   def destroy
     @post = Post.find(params[:id])
     @post.destroy
-    redirect_to admin_posts_path
+    redirect_to admin_posts_path, notice: '削除が完了しました。'
   end
 
   private

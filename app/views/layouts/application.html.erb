@@ -63,7 +63,11 @@
                   <i class="far fa-address-card"></i>MyPage
                 <% end %>
               </li>
-              <li class="nav-item"><%= link_to "Menu", admin_menus_path, class: 'nav-link text-dark' %></li>
+              <li class="nav-item">
+                <%= link_to admin_menus_path, class: 'nav-link text-dark' do %>
+                  <i class="fas fa-book-open"></i>Menu
+                <% end %>
+              </li>
               <li class="nav-item">
                 <%= link_to admin_posts_path, class: 'nav-link text-dark' do %>
                   <i class="fas fa-camera"></i>
@@ -116,7 +120,7 @@
     </main>
     <footer>
       <div class="row">
-        <div class="col-4 mx-auto">
+        <div class="mx-auto">
           <p class="text-center">©︎Cutrim</p>
         </div>
       </div>
