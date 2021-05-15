@@ -20,13 +20,11 @@
 
  @charset "UTF-8";
 
- header, .main, footer, .main-text, .row {
-  font-family: 'Amatic SC', 'Bad Script', 'Caveat', 'Kalam', cursive, 'M PLUS Rounded 1c', 'Nanum Gothic', sans-serif;
+ header, .main, footer, .main-text, .row, .salon-detail, .wrap {
+  font-family: 'Bad Script', 'Caveat', 'Kalam', cursive, 'Nanum Gothic', sans-serif, 'Kiwi Maru', 'New Tegomin', serif;
+  font-size: 20px;
 }
 
-header, .main, footer, .main-text, .row {
- font-size: 20px;
-}
 
  body {
 	color: #73646A;
@@ -411,7 +409,7 @@ th.table-top {
 }
 
 th.table-second {
-	width: 400px;
+	width: 350px;
 }
 
 .slider{

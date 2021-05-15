@@ -14,10 +14,7 @@
         <br>
         <br>
         <br>
-        <strong>Cutrim</strong>では、<br>
-        お好みのカットスタイルを探すことができます。<br>
-        さらに、お近くのサロンでのご予約も<br>
-        <strong>Cutrim</strong>から可能です。<br>
+        <strong>Cutrim</strong>でできること<%= image_tag '/assets/paw-icon.jpeg', :size =>'20x20' %><br>
         <br>
         <%= link_to "ABOUT US >", homes_about_path, class: "btn btn-dark" %>
       </p>
@@ -43,7 +40,7 @@
         <br>
         <br>
         お近くのサロンを探しましょう。<br>
-        ご予約も可能です。<br>
+        ご予約も可能です<%= image_tag '/assets/paw-icon.jpeg', :size =>'20x20' %><br>
         <br>
         <%= link_to "SALON >", salon_users_path, class: "btn btn-dark" %>
       </p>
@@ -87,7 +84,14 @@
   </div>
 </div>
 <div class="scroll-animation">
-  <div class="row mt-5">
+   <div class="row mt-5">
+    <div class="mx-auto">
+      <p>
+        お気に入りのカットスタイルを探しましょう<%= image_tag '/assets/paw-icon.jpeg', :size =>'20x20' %>
+      </p>
+    </div>
+  </div>
+  <div class="row mt-3">
     <div class="mx-auto">
       <%= link_to "VIEW MORE >", posts_path, class: "btn btn-dark" %>
     </div>

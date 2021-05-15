@@ -56,3 +56,5 @@ https://pixabay.com/ja/
 https://www.designevo.com/
 - ICOON MONO
 https://icooon-mono.com/
+- icon rainbow
+https://icon-rainbow.com/
