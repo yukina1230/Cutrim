@@ -11,20 +11,13 @@
           <% end %>
         </div>
         <div class="card-body">
-          <% if @post.favorited_by?(current_user) %>
-            <%= link_to post_favorites_path(@post), method: :delete do %>
-              <%= image_tag '/assets/born_brown.jpeg', :size =>'20x20' %>
-            <% end %>
-            <%= @post.favorites.count %><br>
-          <% else %>
-            <%= link_to post_favorites_path(@post), method: :post do %>
-            <%= image_tag '/assets/born_white.jpeg', :size =>'20x20' %>
-          <% end %>
-          <%= @post.favorites.count %><br>
-        <% end %>
-        <%= @post.created_at.strftime('%Y/%m/%d') %><br>
-        犬種：<%= @post.dog_breed %><br>
-        説明：<%= @post.caption %><br>
+          <div class="favorite_btn_<%= @post.id %>">
+              <%= render 'public/favorites/favorite', post: @post %>
+            </div>
+          <%= @post.created_at.strftime('%Y/%m/%d') %><br>
+          犬種：<%= @post.dog_breed %><br>
+          説明：<%= @post.caption %><br>
+        </div>
       </div>
     </div>
   </div>
