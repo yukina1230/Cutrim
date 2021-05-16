@@ -1,6 +1,6 @@
 <% if user_signed_in? %>
   <div class="row">
-    <div class="col-6 offset-3">
+    <div class="col-lg-6 offset-3">
       <div class="post-index">
       <% posts.each do |post| %>
         <div class="card mx-auto mt-4 shadow-lg" style="width: 202px">
@@ -26,7 +26,7 @@
 
 <% else %>
   <div class="row">
-    <div class="col-6 offset-3">
+    <div class="col-lg-6 offset-3">
       ※お気に入りをするには<br>
       ログインまたは新規登録をしてください→
       <%= link_to new_user_session_path do %>

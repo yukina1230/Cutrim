@@ -8,7 +8,7 @@
   </div>
 </div>
 <div class="row mt-4">
-  <div class="col-6">
+  <div class="col-md-6">
     <div class="scroll-left">
       <p class="text-center align-middle">
         <br>
@@ -20,19 +20,19 @@
       </p>
     </div>
   </div>
-  <div class="col-6">
+  <div class="col-md-6">
     <div class="scroll-right">
       <div class="main-about-image"></div>
     </div>
   </div>
 </div>
 <div class="row mt-3">
-  <div class="col-6">
+  <div class="col-md-6">
     <div class="scroll-left">
       <div class="main-salon-image"></div>
     </div>
   </div>
-  <div class="col-6">
+  <div class="col-md-6">
     <div class="scroll-right">
       <p class="text-center align-middle">
         <br>
@@ -50,13 +50,15 @@
 <div class="scroll-animation">
   <div class="row mt-5">
     <div class="col-6 offset-3">
-      <h2 class="text-center"><i class="fas fa-camera"></i>NEW POST</h2>
+      <div class="mx-auto">
+        <h2 class="text-center"><i class="fas fa-camera"></i>NEW POST</h2>
+      </div>
     </div>
   </div>
 </div>
 <div class="scroll-animation">
   <div class="row mt-1">
-    <div class="col-8 offset-2">
+    <div class="col-md-8 offset-2">
       <div class="new-post">
         <div class="new-post-left">
           <% @post_images.first(1).each do |image| %>
@@ -84,7 +86,7 @@
   </div>
 </div>
 <div class="scroll-animation">
-   <div class="row mt-5">
+  <div class="row mt-5">
     <div class="mx-auto">
       <p>
         お気に入りのカットスタイルを探しましょう<%= image_tag '/assets/paw-icon.jpeg', :size =>'20x20' %>

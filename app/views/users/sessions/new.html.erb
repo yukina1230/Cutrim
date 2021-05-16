@@ -1,6 +1,6 @@
 <div class="row mt-5 mb-3">
-  <div class="col-5 offset-1 border-right">
-    <span class="title-background">ログイン</span>
+  <div class="col-lg-5 offset-1 border-right">
+    <span class="title-background">ログイン</span><br>
     <p>会員登録がお済みの方は以下よりログインください。</p>
 
     <%= form_with model: @user, url: user_session_path, local: true do |f| %>
@@ -17,7 +17,7 @@
       </div>
     <% end %>
   </div>
-  <div class="col-5 offset-1">
+  <div class="col-lg-5 offset-1">
     <div>
       <span class="title-background">会員登録がお済みでない方</span>
       <p>会員登録がお済みでない方はこちらから登録をお願いします。</p>

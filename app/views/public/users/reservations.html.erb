@@ -6,22 +6,22 @@
   </div>
 </div>
 <div class="row mt-3 mb-3">
-  <div class="col-3 offset-2">
+  <div class="col-lg-3 offset-2">
     <span class="title-background">現在の予約</span>
   </div>
 </div>
 <div class="row">
-  <div class="col-8 offset-2">
+  <div class="col-lg-8 offset-2">
     <% if @reservations.blank? %>
       <p>予約はありません。</p>
   </div>
     <% else %>
       <% @reservations.each do |reservation| %>
       <div class="row border-bottom mt-3 pb-3 pt-3">
-        <div class="col-4 offset-1">
+        <div class="col-lg-4 offset-1">
           <%= attachment_image_tag reservation.salon_user, :salon_image, :fill, 300, 200, fallback: "no_image.jpg",size:'300x200' %>
         </div>
-        <div class="col-5">
+        <div class="col-lg-5 offset-1">
           <h4><%= reservation.salon_user.salon_name %></h4>
           〠<%= reservation.salon_user.postal_code %><br>
           <%= reservation.salon_user.prefecture_code %><%= reservation.salon_user.address_city %><%= reservation.salon_user.address_building %><br>
@@ -36,22 +36,22 @@
 </div>
 
 <div class="row mt-3 mb-3">
-  <div class="col-3 offset-2">
+  <div class="col-lg-3 offset-2">
     <span class="title-background">過去の予約</span>
   </div>
 </div>
 <div class="row">
-  <div class="col-8 offset-1">
+  <div class="col-lg-8 offset-2">
     <% if @visit_historys.blank? %>
       <p>予約履歴はありません。</p>
   </div>
     <% else %>
       <% @visit_historys.each do |visit_history| %>
       <div class="row border-bottom mt-3 pb-3 pt-3">
-        <div class="col-4 offset-1">
+        <div class="col-lg-4 offset-1">
           <%= attachment_image_tag visit_history.salon_user, :salon_image, :fill, 300, 200, fallback: "no_image.jpg",size:'300x200' %>
         </div>
-        <div class="col-5">
+        <div class="col-lg-5 offset-1">
           <h4><%= visit_history.salon_user.salon_name %></h4>
           <%= visit_history.day %><br>
           <%= visit_history.time %><br>

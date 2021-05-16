@@ -1,10 +1,10 @@
 <%= render 'search' %>
 <% @salon_users.each do |salon_user| %>
 <div class="row border-top mt-3 mb-3 pt-3">
-  <div class="col-3 offset-1">
+  <div class="col-lg-3 offset-1">
       <%= attachment_image_tag salon_user, :salon_image, :fill, 300, 150, fallback: "no_image.jpg",size:'300x150' %>
   </div>
-  <div class="col-5">
+  <div class="col-lg-5 offset-1">
     <div class="h3 mb-3 text-dark">
       <%= link_to salon_user_path(salon_user) do %>
         <%= salon_user.salon_name %>

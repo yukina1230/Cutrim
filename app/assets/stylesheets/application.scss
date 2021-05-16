@@ -109,7 +109,7 @@
  }
 
  .title-background {
-  font-size: 25px;
+  font-size: 22px;
   background-color: #d5c5c3;
   text-align: center;
   line-height: 30px;
@@ -398,7 +398,7 @@ td.table-heading {
 }
 
 .salon_user_post_image {
- width: 650px;
+ width: 90%;
  display: flex;
  flex-wrap: wrap;
  margin: 0 auto;
@@ -489,4 +489,63 @@ footer {
 
 #back img {
   width: 50px;
+}
+
+@media screen and (max-width:1024px) {
+ .main-about-image {
+  display: none;
+ }
+
+ .new-post {
+  display: block;
+  margin: 0 auto;
+ }
+
+ .new-post-left {
+  display: none;
+ }
+ .new-post-center {
+  margin-left: 20px;
+ }
+ .new-post-right {
+  display: none;
+ }
+
+ .about-left-image {
+  margin: 0 auto;
+ }
+
+ .about-right-image {
+  display: none;
+ }
+
+ .info-left-image {
+  margin: 0 auto;
+ }
+
+ .salon-image img {
+  margin: 0 auto;
+  width: 70%;
+  height: auto;
+ }
+
+ #tab1 > table th, #tab1 > table td {
+  width: 90%;
+  display: block;
+ }
+
+ #tab3 > table {
+  width: 100%;
+ }
+
+ #tab3 > table th {
+  width: 33%;
+ }
+
+ .post-index {
+  width: 420px;
+  display: flex;
+  flex-wrap: wrap;
+ }
+
 }
