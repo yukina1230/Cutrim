@@ -14,7 +14,7 @@
         <br>
         <br>
         <br>
-        <strong>Cutrim</strong>でできること<%= image_tag '/assets/paw-icon.jpeg', :size =>'20x20' %><br>
+        <strong>Cutrim</strong>でできること<%= image_tag asset_path('paw-icon.jpeg'), :size =>'20x20' %><br>
         <br>
         <%= link_to "ABOUT US >", homes_about_path, class: "btn btn-dark" %>
       </p>
@@ -40,7 +40,7 @@
         <br>
         <br>
         お近くのサロンを探しましょう。<br>
-        ご予約も可能です<%= image_tag '/assets/paw-icon.jpeg', :size =>'20x20' %><br>
+        ご予約も可能です<%= image_tag asset_path('paw-icon.jpeg'), :size =>'20x20' %><br>
         <br>
         <%= link_to "SALON >", salon_users_path, class: "btn btn-dark" %>
       </p>
@@ -89,7 +89,7 @@
   <div class="row mt-5">
     <div class="mx-auto">
       <p>
-        お気に入りのカットスタイルを探しましょう<%= image_tag '/assets/paw-icon.jpeg', :size =>'20x20' %>
+        お気に入りのカットスタイルを探しましょう<%= image_tag asset_path('paw-icon.jpeg'), :size =>'20x20' %>
       </p>
     </div>
   </div>
@@ -102,7 +102,7 @@
 
 <span id="back">
   <%= link_to "#" do %>
-    <%= image_tag "img/logo-top.png" %>
+    <%= image_tag asset_path("img/logo-top.png") %>
   <% end %>
 </span>
 <%= javascript_include_tag 'script.js' %>
