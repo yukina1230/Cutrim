@@ -125,7 +125,7 @@
  }
 
  .main-image {
-  background-image: image-url(img/various_dogs.jpg);
+  background-image: image-url("img/various_dogs.jpg");
   width: 100%;
   height: 600px;
   background-size: cover;
@@ -196,7 +196,7 @@ header {
 }
 
 .main-about-image {
- background-image: image-url(img/cut_shihtzu3.jpg);
+ background-image: image-url("img/cut_shihtzu3.jpg");
  width: 600px;
  height: 400px;
  background-position: center;
@@ -204,7 +204,7 @@ header {
 }
 
 .main-salon-image {
- background-image: image-url(img/cut_shihtzu.jpg);
+ background-image: image-url("img/cut_shihtzu.jpg");
  width: 600px;
  height: 400px;
  background-position: center;
@@ -212,7 +212,7 @@ header {
 }
 
 .about-left-image {
- background-image: image-url(img/cut_shihtzu5.jpg);
+ background-image: image-url("img/cut_shihtzu5.jpg");
  width: 400px;
  height: 500px;
  background-position: bottom;
@@ -220,7 +220,7 @@ header {
 }
 
 .about-right-image {
- background-image: image-url(img/cut.jpg);
+ background-image: image-url("img/cut.jpg");
  width: 400px;
  height: 500px;
  background-position: center;
@@ -228,7 +228,7 @@ header {
 }
 
 .info-left-image {
- background-image: image-url(img/cut_shihtzu2.jpg);
+ background-image: image-url("img/cut_shihtzu2.jpg");
  width: 600px;
  height: 500px;
  background-position: bottom;
@@ -236,26 +236,11 @@ header {
 }
 
 .new-post {
- display: flex;
- width: 900px;
- height: 450px;
+ margin: 0 auto;
+ display: inline-block;
+ padding-left: 250px;
 }
 
-.new-post-left {
- width: 300px;
- display: flex;
- flex-wrap: wrap;
-}
-.new-post-center {
- width: 300px;
- display: flex;
- flex-wrap: wrap;
-}
-.new-post-right {
- width: 300px;
- display: flex;
- flex-wrap: wrap;
-}
 
 /*下からフェードイン*/
 .fade-in-bottom-1 {

@@ -14,7 +14,7 @@
         <br>
         <br>
         <br>
-        <strong>Cutrim</strong>でできること<%= image_tag asset_path('paw-icon.jpeg'), :size =>'20x20' %><br>
+        <strong>Cutrim</strong>でできること<%= image_tag asset_path('paw-icon.jpg'), :size =>'20x20' %><br>
         <br>
         <%= link_to "ABOUT US >", homes_about_path, class: "btn btn-dark" %>
       </p>
@@ -40,7 +40,7 @@
         <br>
         <br>
         お近くのサロンを探しましょう。<br>
-        ご予約も可能です<%= image_tag asset_path('paw-icon.jpeg'), :size =>'20x20' %><br>
+        ご予約も可能です<%= image_tag asset_path('paw-icon.jpg'), :size =>'20x20' %><br>
         <br>
         <%= link_to "SALON >", salon_users_path, class: "btn btn-dark" %>
       </p>
@@ -57,39 +57,19 @@
   </div>
 </div>
 <div class="scroll-animation">
-  <div class="row mt-1">
-    <div class="col-md-8 offset-2">
       <div class="new-post">
-        <div class="new-post-left">
-          <% @post_images.first(1).each do |image| %>
-            <%= attachment_image_tag image, :image, :fill, 300, 300, fallback: "no_image.jpg",size:'300x300', class: "border border-white rounded" %>
-          <% end %>
-          <% @post_images.slice(2..3).each do |image| %>
-            <%= attachment_image_tag image, :image, :fill, 150, 150, fallback: "no_image.jpg",size:'150x150', class: "border border-white rounded " %>
-          <% end %>
-        </div>
-        <div class="new-post-center">
-          <% @post_images.slice(4..9).each do |image| %>
+        <div class="new-post-image">
+          <% @post_images.first(6).each do |image| %>
             <%= attachment_image_tag image, :image, :fill, 150, 150, fallback: "no_image.jpg",size:'150x150', class: "border border-white rounded" %>
-          <% end %>
-        </div>
-        <div class="new-post-right">
-          <% @post_images.slice(10..11).each do |image| %>
-            <%= attachment_image_tag image, :image, :fill, 150, 150, fallback: "no_image.jpg",size:'150x150', class: "border border-white rounded" %>
-          <% end %>
-          <% @post_images.slice(12..12).each do |image| %>
-            <%= attachment_image_tag image, :image, :fill, 300, 300, fallback: "no_image.jpg",size:'300x300', class: "border border-white rounded" %>
           <% end %>
         </div>
       </div>
-    </div>
-  </div>
 </div>
 <div class="scroll-animation">
   <div class="row mt-5">
     <div class="mx-auto">
       <p>
-        お気に入りのカットスタイルを探しましょう<%= image_tag asset_path('paw-icon.jpeg'), :size =>'20x20' %>
+        お気に入りのカットスタイルを探しましょう<%= image_tag asset_path('paw-icon.jpg'), :size =>'20x20' %>
       </p>
     </div>
   </div>
