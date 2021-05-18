@@ -1,5 +1,8 @@
 <div class="row mt-5 mb-3">
   <div class="col-5 mx-auto">
+    <div class="flash-message">
+      <%= flash[:alert] %>
+    </div>
     <span class="title-background">ログイン</span>
 
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
