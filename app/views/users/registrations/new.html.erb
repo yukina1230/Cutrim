@@ -62,19 +62,19 @@
 <div class="row">
   <div class="col-6 offset-3">
     <%= f.label :postal_code, "郵便番号" %> <span class="badge badge-danger">必須</span><br>
-    <%= f.text_field :postal_code, autofocus: true, :placeholder => "123-4567", id: "postal_code" %><p class="error-message"><%= resource.errors.full_messages_for(:postal_code)[0] %></p>
+    <%= f.text_field :postal_code, autofocus: true, :placeholder => "123-4567", id: "user_postal_code" %><p class="error-message"><%= resource.errors.full_messages_for(:postal_code)[0] %></p>
   </div>
 </div>
 <div class="row">
   <div class="col-6 offset-3">
     <%= f.label :prefecture_code, "都道府県" %> <span class="badge badge-danger">必須</span><br>
-    <%= f.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :code, :name, { prompt: '選択してください' }, id: "prefecture" %><p class="error-message"><%= resource.errors.full_messages_for(:prefecture_code)[0] %></p>
+    <%= f.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :code, :name, { prompt: '選択してください' }, id: "user_prefecture" %><p class="error-message"><%= resource.errors.full_messages_for(:prefecture_code)[0] %></p>
   </div>
 </div>
 <div class="row">
   <div class="col-6 offset-3">
     <%= f.label :address_city, "住所" %> <span class="badge badge-danger">必須</span><br>
-    <%= f.text_field :address_city, autofocus: true, id: "address_city", :size => "60*30" %><p class="error-message"><%= resource.errors.full_messages_for(:address_city)[0] %></p>
+    <%= f.text_field :address_city, autofocus: true, id: "user_address_city", :size => "60*30" %><p class="error-message"><%= resource.errors.full_messages_for(:address_city)[0] %></p>
   </div>
 </div>
 <div class="row">

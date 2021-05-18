@@ -1,13 +1,27 @@
 /*global $*/
 $(function() {
   $(document).on('turbolinks:load', () => {
-    $('#postal_code').jpostal({
+    $('user_postal_code').jpostal({
       postcode : [
-        '#postal_code'
+        '#user_postal_code'
       ],
       address: {
-        "#prefecture": "%3",
-        "#address_city"           : "%4%5",
+        "#user_prefecture": "%3",
+        "#user_address_city"           : "%4%5",
+      }
+    });
+  });
+});
+
+$(function() {
+  $(document).on('turbolinks:load', () => {
+    $('salon_postal_code').jpostal({
+      postcode : [
+        '#salon_postal_code'
+      ],
+      address: {
+        "#salon_prefecture": "%3",
+        "#salon_address_city"           : "%4%5",
       }
     });
   });
