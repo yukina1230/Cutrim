@@ -367,7 +367,7 @@ header {
 }
 
 table.table-layout {
-	table-layout: fixed;;
+	table-layout: fixed;
 	width: 100%;
 }
 
@@ -380,6 +380,18 @@ table.table-layout td {
 
 td.table-heading {
 	width: 130px;
+}
+
+table.table-reserve {
+ table-layout: fixed;
+}
+
+table.table-reserve th, table.table-reserve td {
+  border: 1px solid #73646A;
+}
+
+.table-with {
+ width: 80px;
 }
 
 .salon_user_post_image {

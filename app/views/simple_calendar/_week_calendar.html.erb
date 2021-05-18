@@ -10,12 +10,12 @@
     <% reservations = Reservation.reservations_after_three_month %>
   </div>
 
-  <table class="table table-striped">
+  <table class="table-reserve">
     <thead>
       <tr>
         <th>時間</th>
         <% date_range.slice(0, 7).each do |day| %>
-          <th><%= t('date.abbr_day_names')[day.wday] %></th>
+          <th class="table-with"><%= t('date.abbr_day_names')[day.wday] %></th>
         <% end %>
       </tr>
     </thead>
