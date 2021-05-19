@@ -27,10 +27,12 @@ class SalonUser < ApplicationRecord
   end
 
   geocoded_by :address
-  after_validation :geocode
+  after_validation :geocode, if: :prefecture_code_changed?
+  after_validation :geocode, if: :address_city_changed?
+  after_validation :geocode, if: :address_building_changed?
 
   def address
-    [self.prefecture_code,self.address_city,self.address_building].compact.join(" ")
+    [self.prefecture_code,self.address_city,self.address_building].compact.join("")
   end
 
 end

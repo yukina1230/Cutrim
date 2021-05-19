@@ -68,7 +68,7 @@
 <div class="row">
   <div class="col-6 offset-3">
     <%= f.label :prefecture_code, "都道府県" %> <span class="badge badge-danger">必須</span><br>
-    <%= f.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :code, :name, { prompt: '選択してください' }, id: "user_prefecture" %><p class="error-message"><%= resource.errors.full_messages_for(:prefecture_code)[0] %></p>
+    <%= f.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :name, :name, { prompt: '選択してください' }, id: "user_prefecture" %><p class="error-message"><%= resource.errors.full_messages_for(:prefecture_code)[0] %></p>
   </div>
 </div>
 <div class="row">

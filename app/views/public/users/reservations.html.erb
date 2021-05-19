@@ -24,7 +24,7 @@
         <div class="col-lg-5 offset-1">
           <h4><%= reservation.salon_user.salon_name %></h4>
           〠<%= reservation.salon_user.postal_code %><br>
-          <%= reservation.salon_user.prefecture_code %><%= reservation.salon_user.address_city %><%= reservation.salon_user.address_building %><br>
+          <%= reservation.salon_user.address %><br>
           来店日時：<%= reservation.day %>/<%= reservation.time %><br>
           ☎︎<%= reservation.salon_user.phone %><br>
           <%= link_to '詳細', salon_user_reservation_path(@salon_user, reservation), class: "btn btn-info" %>

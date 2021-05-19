@@ -10,9 +10,10 @@ class SalonUsers::RegistrationsController < Devise::RegistrationsController
   # end
 
   # POST /resource
-  # def create
-  #   super
-  # end
+  def create
+    super
+    ThanksMailer.send_thanksmail_salonuser(params[:salon_user][:email],params[:salon_user][:salon_name]).deliver
+  end
 
   # GET /resource/edit
   # def edit

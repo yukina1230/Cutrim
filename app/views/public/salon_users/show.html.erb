@@ -28,7 +28,7 @@
             <td>住所</td>
             <td>
               〠<%= @salon_user.postal_code %><br>
-              <%= @salon_user.prefecture_code %><%= @salon_user.address_city %><%= @salon_user.address_building %>
+              <%= @salon_user.address %>
             </td>
           </tr>
           <tr>
@@ -97,7 +97,7 @@
         lat: gon.salon_user.latitude,
         lng: gon.salon_user.longitude
       },
-      // マップの倍率はお好みで
+      // マップの倍率
       zoom: 17,
     });
 

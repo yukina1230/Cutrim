@@ -30,4 +30,12 @@ class User < ApplicationRecord
     self.prefecture_code = JpPrefecture::Prefecture.find(name: prefecture_name).code
   end
 
+  def user_name
+    [self.family_name,self.first_name].compact.join(" ")
+  end
+
+  def user_name_kana
+    [self.family_name_kana,self.first_name_kana].compact.join(" ")
+  end
+
 end

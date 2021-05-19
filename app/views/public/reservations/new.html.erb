@@ -29,7 +29,7 @@
         </div>
         <div class="name form-group">
           <label for="reservation_dog_name">ご予約者様</label>
-          <input class="form-control" type="text" readonly="true" value="<%= current_user.family_name + current_user.first_name %>" />
+          <input class="form-control" type="text" readonly="true" value="<%= current_user.user_name %>" />
           <%#= f.label :name, 'ご予約者様' %><br>
           <%#= f.text_field :name, class: 'form-control', value: current_user.family_name + current_user.first_name, readonly: true %>
         </div>

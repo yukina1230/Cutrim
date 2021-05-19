@@ -11,7 +11,7 @@
       <% end %>
     </div>
     〠<%= salon_user.postal_code %><br>
-    <%= salon_user.prefecture_code %><%= salon_user.address_city %><%= salon_user.address_building %><br>
+    <%= salon_user.address %><br>
     <i class="fas fa-phone-square-alt"></i><%= salon_user.phone %>
     / 営業時間 <%= salon_user.business_start_time&.strftime('%H:%M') %>~<%= salon_user.business_end_time&.strftime('%H:%M') %>
   </div>

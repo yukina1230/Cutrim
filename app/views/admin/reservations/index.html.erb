@@ -10,7 +10,7 @@
           予約ID：<%= reservation.id %>｜
           予約日：<%= reservation.created_at.strftime("%Y-%m-%d %H:%M") %>｜
           来店日時：<%= reservation.day %>,<%= reservation.time %>｜
-          ご予約者様：<%= reservation.user.family_name %><%= reservation.user.first_name %>
+          ご予約者様：<%= reservation.user.user_name %>
         </div>
       <% end %>
     <% end %>
