@@ -27,7 +27,10 @@
 犬を飼っている方・トリミングサロン
 
 ### 主な利用シーン
-トリミングサロンに犬を連れていきたいとき
+- 顧客
+トリミングサロンに犬を連れていきたいとき・カットスタイルを探したいとき
+- トリミングサロン
+トリミング後等の犬の写真を投稿・予約の管理
 
 ## 設計書
 - ER図
@@ -58,3 +61,5 @@ https://www.designevo.com/
 https://icooon-mono.com/
 - icon rainbow
 https://icon-rainbow.com/
+- icons8
+https://icons8.com/
