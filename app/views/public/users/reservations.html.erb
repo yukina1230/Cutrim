@@ -25,7 +25,7 @@
           <h4><%= reservation.salon_user.salon_name %></h4>
           〠<%= reservation.salon_user.postal_code %><br>
           <%= reservation.salon_user.prefecture_code %><%= reservation.salon_user.address_city %><%= reservation.salon_user.address_building %><br>
-          来店日時：<%= reservation.day %><%= reservation.time %><br>
+          来店日時：<%= reservation.day %>/<%= reservation.time %><br>
           ☎︎<%= reservation.salon_user.phone %><br>
           <%= link_to '詳細', salon_user_reservation_path(@salon_user, reservation), class: "btn btn-info" %>
         </div>
@@ -53,8 +53,8 @@
         </div>
         <div class="col-lg-5 offset-1">
           <h4><%= visit_history.salon_user.salon_name %></h4>
-          <%= visit_history.day %><br>
-          <%= visit_history.time %><br>
+          <%= visit_history.day %>/<%= visit_history.time %><br>
+          メニュー：<%= visit_history.menu %><br>
         </div>
       </div>
       <% end %>

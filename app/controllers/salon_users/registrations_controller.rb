@@ -48,7 +48,10 @@ class SalonUsers::RegistrationsController < Devise::RegistrationsController
       :prefecture_code,
       :address_city,
       :address_building,
-      :phone])
+      :phone,
+      :latitude,
+      :longitude,
+      :address])
   end
 
   # If you have extra params to permit, append them to the sanitizer.

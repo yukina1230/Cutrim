@@ -5,6 +5,7 @@ class Public::SalonUsersController < ApplicationController
 
   def show
     @salon_user = SalonUser.find(params[:id])
+    gon.salon_user = @salon_user
   end
 
   def search

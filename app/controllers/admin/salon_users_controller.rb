@@ -33,7 +33,10 @@ class Admin::SalonUsersController < ApplicationController
       :introduction,
       :business_day,
       :business_start_time,
-      :business_end_time)
+      :business_end_time,
+      :latitude,
+      :longitude,
+      :address)
   end
 
 end

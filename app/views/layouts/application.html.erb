@@ -5,6 +5,7 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <%= include_gon %>
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <script src="https://kit.fontawesome.com/721f0cdc29.js" crossorigin="anonymous"></script>
     <script src="https://unpkg.com/scrollreveal"></script>
@@ -102,7 +103,7 @@
                 <% end %>
               </li>
               <li class="nav-item">
-                <%= link_to new_user_registration_path, class: 'nav-link text-dark' do %>
+                <%= link_to new_user_registration_path, data: {"turbolinks" => false}, class: 'nav-link text-dark' do %>
                   <i class="fas fa-user-plus"></i>新規登録
                 <% end %>
               </li>

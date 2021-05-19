@@ -7,7 +7,7 @@ $(function() {
       ],
       address: {
         "#user_prefecture": "%3",
-        "#user_address_city"           : "%4%5",
+        "#user_address_city": "%4%5",
       }
     });
   });
@@ -21,7 +21,7 @@ $(function() {
       ],
       address: {
         "#salon_prefecture": "%3",
-        "#salon_address_city"           : "%4%5",
+        "#salon_address_city": "%4%5",
       }
     });
   });
