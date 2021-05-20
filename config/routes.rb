@@ -17,6 +17,7 @@ Rails.application.routes.draw do
       resources :reservations, only: [:index, :new, :create, :show, :destroy]
       collection do
         get 'search'
+        get 'map'
       end
     end
     resources :posts, only: [:index, :show] do

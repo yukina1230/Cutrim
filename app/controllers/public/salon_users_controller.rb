@@ -12,4 +12,9 @@ class Public::SalonUsersController < ApplicationController
     @search = params[:search]
     @salon_users = SalonUser.search(params[:search])
   end
+
+  def map
+    gon.salon_users = SalonUser.all
+  end
+
 end

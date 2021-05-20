@@ -1,0 +1,64 @@
+<div class="row mt-3 mb-3">
+  <div class="col-3 offset-1">
+    <span class="title-background">現在地周辺</span>
+  </div>
+</div>
+
+<div id="maps"></div>
+
+<script>
+let maps;
+let marker = []; // マーカーを複数表示させたいので、配列化
+let infoWindow = []; // 吹き出しを複数表示させたいので、配列化
+const salon_users = gon.salon_users; // コントローラーで定義したインスタンス変数を変数に代入
+
+function initMap(){
+  // 現在位置の特定
+  navigator.geolocation.getCurrentPosition(function (position){
+    // LatLngに位置座標を代入
+    LatLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+
+    // mapの初期位置設定
+    map = new google.maps.Map(document.getElementById('maps'), {
+      center: LatLng,
+      zoom: 15
+    });
+    // map.setCenterで地図が初期位置に移動
+    map.setCenter(LatLng);
+
+    // forは繰り返し処理
+    // 変数iを0と定義し、
+    // その後gonで定義したstudios分繰り返し加える処理を行う
+    for (let i = 0; i < salon_users.length; i++){
+      // studios[i]は変数iのユーザーを取得している
+      marker[i] = new google.maps.Marker({
+        map: map,
+        position: {
+          // DBに保存してある、緯度・経度を呼び出す
+          lat: salon_users[i].latitude,
+          lng: salon_users[i].longitude
+        }
+      });
+
+      // 変数iを変数idに代入
+      let id = salon_users[i]['id']
+
+      // infoWindowは吹き出し
+      infoWindow[i] = new google.maps.InfoWindow({
+        // contentで中身を指定
+        // 今回は文字にリンクを貼り付けた形で表示
+        content: `<a href='/salon_users/${id}'>${salon_users[i].salon_name}</a>`
+      });
+      // markerがクリックされた時、
+      marker[i].addListener("click", function(){
+        // infoWindowを表示
+        infoWindow[i].open(map, marker[i]);
+      });
+    }
+  });
+}
+</script>
+
+<script async defer
+      src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GMAP_API'] %>&callback=initMap">
+</script>
