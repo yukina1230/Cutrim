@@ -3,7 +3,9 @@
     <div class="search_form">
       <%= form_with url: search_posts_path, local: true, method: :get do |f| %>
         <%= f.text_field :dog_breed, :placeholder => "犬種を入力" %>
-        <%= f.submit "検索", class: "btn btn-info" %>
+        <%= button_tag type: 'submit', class: "btn btn-info" do %>
+          検索<i class="fas fa-search"></i>
+        <% end %>
       <% end %>
     </div>
   </div>
