@@ -8,8 +8,8 @@
 
 <script>
 let maps;
-let marker = []; // マーカーを複数表示させたいので、配列化
-let infoWindow = []; // 吹き出しを複数表示させたいので、配列化
+let marker = []; // マーカーを複数表示させるために配列化
+let infoWindow = []; // 吹き出しを複数表示させるために配列化
 const salon_users = gon.salon_users; // コントローラーで定義したインスタンス変数を変数に代入
 
 function initMap(){
@@ -26,11 +26,10 @@ function initMap(){
     // map.setCenterで地図が初期位置に移動
     map.setCenter(LatLng);
 
-    // forは繰り返し処理
     // 変数iを0と定義し、
-    // その後gonで定義したstudios分繰り返し加える処理を行う
+    // その後gonで定義したsalon_users分繰り返し加える処理を行う
     for (let i = 0; i < salon_users.length; i++){
-      // studios[i]は変数iのユーザーを取得している
+      // salon_users[i]は変数iのユーザーを取得している
       marker[i] = new google.maps.Marker({
         map: map,
         position: {
@@ -46,7 +45,7 @@ function initMap(){
       // infoWindowは吹き出し
       infoWindow[i] = new google.maps.InfoWindow({
         // contentで中身を指定
-        // 今回は文字にリンクを貼り付けた形で表示
+        // 文字にリンクを貼り付けた形で表示
         content: `<a href='/salon_users/${id}'>${salon_users[i].salon_name}</a>`
       });
       // markerがクリックされた時、

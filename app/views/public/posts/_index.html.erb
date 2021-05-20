@@ -42,7 +42,7 @@
             <% end %>
           <% end %>
           <div class="card-body">
-            <%= image_tag asset_path('born_brown.jpeg'), :size =>'20x20' %><%= post.favorites.count %><br>
+            <%= image_tag asset_path('born_brown.jpg'), :size =>'20x20' %><%= post.favorites.count %><br>
             <%= post.created_at.strftime('%Y/%m/%d') %><br>
             <%= @salon_user.salon_name %><br>
             犬種：<%= post.dog_breed %>

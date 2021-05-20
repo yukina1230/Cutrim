@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
   devise_for :salon_users, controllers: {
-    sessions: 'salon_users/sessions',
-    registrations: 'salon_users/registrations',
+    sessions: 'admin/sessions',
+    registrations: 'admin/registrations',
   }
   devise_for :users, controllers: {
-    sessions: 'users/sessions',
-    registrations: 'users/registrations',
+    sessions: 'public/sessions',
+    registrations: 'public/registrations',
   }
   scope module: :public do
     root 'homes#top'
