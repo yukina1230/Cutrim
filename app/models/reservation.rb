@@ -27,16 +27,6 @@ class Reservation < ApplicationRecord
     reservation_data
   end
 
-  def self.check_reservation_day(day)
-    if day < Date.current
-      return "過去の日付は選択できません"
-    elsif day < (Date.current + 1)
-      return "当日は選択できません"
-    elsif (Date.current >> 3) < day
-      return "3ヶ月以降の日付は選択できません"
-    end
-  end
-
   def self.search(search)
     if search
       Reservation.where(['day LIKE ?', "#{search}"])

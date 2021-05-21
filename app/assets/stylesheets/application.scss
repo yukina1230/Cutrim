@@ -74,7 +74,7 @@
 
 .navbar-nav li.current a,
 .navbar-nav li a:hover{
-	color:#CFB1B5;
+	color: #CFB1B5;
 }
 
 .navbar-nav li a::after {
@@ -86,7 +86,7 @@
     /*線の形状*/
     width: 80%;
     height: 2px;
-    background:#CFB1B5;
+    background: #CFB1B5;
     /*アニメーションの指定*/
     transition: all .3s;
     transform: scale(0, 1);/*X方向0、Y方向1*/
@@ -99,6 +99,19 @@
     transform: scale(1, 1);/*X方向にスケール拡大*/
 }
 
+.navbar-nav {
+ background-color: rgba(255, 255, 255, 0.8);
+ text-align: center;
+}
+
+/*メニューがコンテンツの下に隠れないように設定*/
+.navbar {
+ z-index: 2;
+}
+
+.nav-item {
+ margin: 0 auto;
+}
 .fa-heart {
  color: #CFB1B5;
 }
@@ -139,32 +152,34 @@ header {
  height: 120px;
 }
 
+ /*cubic-beizer:変化の進行割合を3次ベジェ曲線で指定*/
 .main-text {
   font-size: 30px;
-  -webkit-animation: text-focus-in 2.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+  -float-animation: text-focus-in 2.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
           animation: text-focus-in 2.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
 }
 
-@-webkit-keyframes text-focus-in {
+/*blur:ぼかし opacity:不透明度*/
+@-float-keyframes text-focus-in {
   0% {
-    -webkit-filter: blur(12px);
+    -float-filter: blur(12px);
             filter: blur(12px);
     opacity: 0;
   }
   100% {
-    -webkit-filter: blur(0px);
+    -float-filter: blur(0px);
             filter: blur(0px);
     opacity: 1;
   }
 }
 @keyframes text-focus-in {
   0% {
-    -webkit-filter: blur(12px);
+    -float-filter: blur(12px);
             filter: blur(12px);
     opacity: 0;
   }
   100% {
-    -webkit-filter: blur(0px);
+    -float-filter: blur(0px);
             filter: blur(0px);
     opacity: 1;
   }
@@ -183,7 +198,7 @@ header {
 	bottom: 0;
 	border-bottom: solid 2px #CFB1B5;
 	transform: translateX(-50%);/*中央寄せ*/
-	animation: line_anim 2s linear forwards;
+	animation: line_anim 2s linear forwards;/*linear:開始から終了まで一定に変化,forwards:アニメーション終了時のスタイルがアニメーション終了後にも適用される*/
 }
 
 @keyframes line_anim {
@@ -247,7 +262,7 @@ header {
    opacity: 0;
    animation-name: fadein-bottom;
    animation-duration: 1.5s;
-   animation-timing-function: ease-out;
+   animation-timing-function: ease-out;/*アニメーションの進行の度合い*/
    animation-fill-mode: forwards;
    animation-delay: .1s;
 }

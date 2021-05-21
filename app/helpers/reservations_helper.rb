@@ -10,10 +10,10 @@ module ReservationsHelper
   end
 
    #予約状況を判断するメソッド
-  def check_reservation(reservations, day, time)
+  def check_reservation(reservations, day, time, salon_user)
     result = false
     reservations_count = reservations.count
-    # 取得した予約データにdayとtimeが一致する場合はtrue,一致しない場合はfalseを返します
+    # 取得した予約データにdayとtimeが一致する場合はtrue,一致しない場合はfalse
     if reservations_count > 1
       reservations.each do |reservation|
         result = reservation[:day].eql?(day.strftime("%Y-%m-%d")) && reservation[:time].eql?(time)
