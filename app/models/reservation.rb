@@ -16,8 +16,8 @@ class Reservation < ApplicationRecord
 
 
   #今日から３ヶ月先までの予約データを取得
-  def self.reservations_after_three_month
-    reservations = Reservation.all.where("day >= ?", Date.current).where("day < ?", Date.current >> 3).order(day: :desc)
+  def self.reservations_after_three_month(salon_user)
+    reservations = salon_user.reservations.where("day >= ?", Date.current).where("day < ?", Date.current >> 3).order(day: :desc)
     reservation_data = []
     reservations.each do |reservation|
       reservations_hash = {}
@@ -25,6 +25,12 @@ class Reservation < ApplicationRecord
       reservation_data.push(reservations_hash)
     end
     reservation_data
+  end
+
+  def self.check_reservation_day(day)
+    if  (Date.current >> 3) < day
+      return "3ヶ月以降の日付は選択できません。"
+    end
   end
 
   def self.search(search)

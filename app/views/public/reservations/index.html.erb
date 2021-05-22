@@ -2,10 +2,13 @@
   <div class="col-lg-10 offset-1 text-center">
     <h1>予約日時選択</h1>
     <p>３ヶ月先まで予約することができます。</p>
+    <div class="flash-message">
+      <%= flash[:alert] %>
+    </div>
   </div>
   <div class="col-lg-6 offset-3 mt-3">
     <%= week_calendar events: @reservations do |date, reservations| %>
-      <%= date.day %>
+      <%= date %>
     <% end %>
   </div>
 </div>

@@ -2,7 +2,9 @@ class Public::ReservationsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @reservations = Reservation.all.where("day >= ?", Date.current).where("day < ?", Date.current >> 3)
+    @salon_user = SalonUser.find(params[:salon_user_id])
+
+    @reservations = @salon_user.reservations.where("day >= ?", Date.current).where("day < ?", Date.current >> 3)
   end
 
  def new

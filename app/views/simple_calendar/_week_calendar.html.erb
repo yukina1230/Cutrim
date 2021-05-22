@@ -7,7 +7,7 @@
       <span class="calendar-title"><%= t('simple_calendar.week', default: '1週間') %></span>
     <% end %>
     <%= link_to t('simple_calendar.next', default: '翌週>'), calendar.url_for_next_view %>
-    <% reservations = Reservation.reservations_after_three_month %>
+    <% reservations = Reservation.reservations_after_three_month(@salon_user) %>
   </div>
 
   <table class="table-reserve">

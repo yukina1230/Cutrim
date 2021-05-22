@@ -10,7 +10,7 @@ module ReservationsHelper
   end
 
    #予約状況を判断するメソッド
-  def check_reservation(reservations, day, time, salon_user)
+  def check_reservation(reservations, day, time)
     result = false
     reservations_count = reservations.count
     # 取得した予約データにdayとtimeが一致する場合はtrue,一致しない場合はfalse
