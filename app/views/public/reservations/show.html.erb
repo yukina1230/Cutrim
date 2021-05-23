@@ -86,6 +86,6 @@
     <%= link_to '予約一覧へ',users_reservations_path, class: "btn btn-info" %>
   </div>
   <div class="col-lg-2 offset-3">
-    <%= link_to '予約をキャンセル', users_reservations_path, method: :delete, "data-confirm" => "本当にキャンセルしますか？", class: "btn btn-danger" %>
+    <%= link_to '予約をキャンセル', salon_user_reservation_path(@reservation), method: :delete, "data-confirm" => "本当にキャンセルしますか？", class: "btn btn-danger" %>
   </div>
 </div>
