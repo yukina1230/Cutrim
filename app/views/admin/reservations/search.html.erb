@@ -9,8 +9,8 @@
         <%= link_to admin_reservation_path(reservation) do %>
           <div class="border mb-2 mt-3">
             予約ID：<%= reservation.id %>
-            来店日時：<%= reservation.day %>,<%= reservation.time %>
-            ご予約者様：<%= reservation.user.family_name %><%= reservation.user.first_name %>
+            来店日時：<%= reservation.day %>/<%= reservation.time %>
+            ご予約者様：<%= reservation.user.user_name %>
           </div>
         <% end %>
       <% end %>

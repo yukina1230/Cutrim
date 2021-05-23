@@ -16,6 +16,10 @@ ja:
         name: "メニュー名"
         caption: "メニュー説明"
         amount: "金額"
+      post:
+        dog_breed: "犬種"
+        caption: "説明"
+        post_images_images: "画像"
   date:
     abbr_day_names:
     - 日

@@ -10,39 +10,39 @@
 <div class="row">
   <div class="col-6 offset-3">
       <%= f.label :salon_name, "サロン名" %><span class="badge badge-danger">必須</span><br>
-      <%= f.text_field :salon_name, autofocus: true, :size => "60*30" %><%= resource.errors.full_messages_for(:salon_name)[0] %>
+      <%= f.text_field :salon_name, autofocus: true, :size => "60*30" %><p class="error-message"><%= resource.errors.full_messages_for(:salon_name)[0] %></p>
   </div>
 </div>
 <div class="row">
   <div class="col-6 offset-3">
       <%= f.label :postal_code, "貴店郵便番号" %><span class="badge badge-danger">必須</span><br>
-      <%= f.text_field :postal_code, autofocus: true, :placeholder => "123-4567", id: "salon_postal_code" %><%= resource.errors.full_messages_for(:postal_code)[0] %>
+      <%= f.text_field :postal_code, autofocus: true, :placeholder => "123-4567", id: "salon_postal_code" %><p class="error-message"><%= resource.errors.full_messages_for(:postal_code)[0] %></p>
   </div>
 </div>
 <div class="row">
   <div class="col-6 offset-3">
       <%= f.label "貴店ご住所" %><span class="badge badge-danger">必須</span><br>
-      <%= f.label :prefecture_code, "都道府県" %> <%= f.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :name, :name, { prompt: '選択してください' }, id: "salon_prefecture" %><%= resource.errors.full_messages_for(:prefecture)[0] %><br>
-      <%= f.label :address_city, "市区郡以下" %> <%= f.text_field :address_city, autofocus: true, id: "salon_address_city", :size => "60*30" %><%= resource.errors.full_messages_for(:address_city)[0] %><br>
+      <%= f.label :prefecture_code, "都道府県" %> <%= f.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :name, :name, { prompt: '選択してください' }, id: "salon_prefecture" %><p class="error-message"><%= resource.errors.full_messages_for(:prefecture)[0] %></p><br>
+      <%= f.label :address_city, "市区郡以下" %> <%= f.text_field :address_city, autofocus: true, id: "salon_address_city", :size => "60*30" %><p class="error-message"><%= resource.errors.full_messages_for(:address_city)[0] %></p><br>
       <%= f.label :address_building, "ビル・マンション名" %> <%= f.text_field :address_building, autofocus: true, :size => "60*30" %>
   </div>
 </div>
 <div class="row">
   <div class="col-6 offset-3">
       <%= f.label :phone, "貴店電話番号（ハイフンなし）" %><span class="badge badge-danger">必須</span><br>
-      <%= f.text_field :phone, autofocus: true, :placeholder => "0120123456" %><%= resource.errors.full_messages_for(:phone)[0] %>
+      <%= f.text_field :phone, autofocus: true, :placeholder => "0120123456" %><p class="error-message"><%= resource.errors.full_messages_for(:phone)[0] %></p>
   </div>
 </div>
 <div class="row">
   <div class="col-6 offset-3">
       <%= f.label :email, "貴店メールアドレス" %><span class="badge badge-danger">必須</span><br>
-      <%= f.email_field :email, autocomplete: "email", :size => "60*30" %><%= resource.errors.full_messages_for(:email)[0] %>
+      <%= f.email_field :email, autocomplete: "email", :size => "60*30" %><p class="error-message"><%= resource.errors.full_messages_for(:email)[0] %></p>
   </div>
 </div>
 <div class="row">
   <div class="col-6 offset-3">
       <%= f.label :password, "パスワード(#{@minimum_password_length}文字以上)" %><span class="badge badge-danger">必須</span><br>
-      <%= f.password_field :password, autocomplete: "new-password" %><%= resource.errors.full_messages_for(:password)[0] %>
+      <%= f.password_field :password, autocomplete: "new-password" %><p class="error-message"><%= resource.errors.full_messages_for(:password)[0] %></p>
   </div>
 </div>
 <div class="row">

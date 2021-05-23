@@ -7,6 +7,7 @@ class Post < ApplicationRecord
   with_options presence: true do
     validates :dog_breed
     validates :caption
+    validates :post_images_images
   end
 
   def favorited_by?(user)

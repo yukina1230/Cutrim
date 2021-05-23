@@ -27,7 +27,7 @@
       写真投稿枚数： <%= post.post_images.count %>枚
       <div class="salon_user-post-link">
         <%= link_to '編集', edit_admin_post_path(post), class: "btn btn-info" %>
-        <%= link_to '削除', admin_posts_path(post), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn btn-danger" %>
+        <%= link_to '削除', admin_post_path(post), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn btn-danger" %>
       </div>
     </div>
   </div>
