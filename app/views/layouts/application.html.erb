@@ -120,6 +120,15 @@
       </nav>
     </header>
     <main>
+      <div class="row mt-3 mb-2">
+        <div class="col-5 offset-2">
+          <div class="flash-message">
+            <%= flash[:notice] %>
+            <%= flash[:success] %>
+            <%= flash[:alert] %>
+          </div>
+        </div>
+      </div>
       <%= yield %>
     </main>
     <footer>
