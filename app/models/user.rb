@@ -38,4 +38,19 @@ class User < ApplicationRecord
     [self.family_name_kana,self.first_name_kana].compact.join(" ")
   end
 
+  def self.guest
+    find_or_create_by!(email: 'guest@example.com') do |user|
+      user.password = SecureRandom.urlsafe_base64
+      user.family_name = "ゲスト"
+      user.first_name = "ログイン"
+      user.family_name_kana = "ゲスト"
+      user.first_name_kana = "ログイン"
+      user.nickname = "ゲスト"
+      user.phone = "08000000000"
+      user.postal_code = "153-0041"
+      user.prefecture_code = "東京都"
+      user.address_city = "目黒区駒場4-4"
+    end
+  end
+
 end

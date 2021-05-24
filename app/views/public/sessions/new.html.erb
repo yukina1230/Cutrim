@@ -17,7 +17,8 @@
       </div><br>
       <div class="actions">
         <%= f.submit "ログイン", class: "btn btn-dark" %>
-      </div>
+      </div><br>
+      <%= link_to "ゲストログイン", public_guest_sign_in_path, method: :post, class: "btn btn-secondary" %>
     <% end %>
   </div>
   <div class="col-lg-5 offset-1">

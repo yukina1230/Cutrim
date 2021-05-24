@@ -18,6 +18,12 @@ class Admin::SessionsController < Devise::SessionsController
   #   super
   # end
 
+  def guest_sign_in
+    salon_user = SalonUser.guest
+    sign_in salon_user
+    redirect_to admin_reservations_path, notice: 'ゲストユーザーとしてログインしました。'
+  end
+
   # protected
 
   # If you have extra params to permit, append them to the sanitizer.

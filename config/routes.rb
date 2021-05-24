@@ -3,10 +3,17 @@ Rails.application.routes.draw do
     sessions: 'admin/sessions',
     registrations: 'admin/registrations',
   }
+  devise_scope :salon_user do
+    post 'admin/guest_sign_in', to: 'admin/sessions#guest_sign_in'
+  end
   devise_for :users, controllers: {
     sessions: 'public/sessions',
     registrations: 'public/registrations',
   }
+  devise_scope :user do
+    post 'public/guest_sign_in', to: 'public/sessions#guest_sign_in'
+  end
+
   scope module: :public do
     root 'homes#top'
     get 'homes/about' => 'homes#about'
