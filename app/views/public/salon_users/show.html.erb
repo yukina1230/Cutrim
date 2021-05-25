@@ -47,18 +47,26 @@
       <div id="map"></div>
     </div>
     <div id="tab2" class="tab">
-      <div class="salon_user_post_image">
-        <% @salon_user.posts.each do |post| %>
-          <%= link_to post_path(post) do %>
-            <div class="card shadow-lg mr-2 mb-2">
-              <% post.post_images.each do |image| %><br>
-                <%= attachment_image_tag image, :image, :fill, 200, 200 %>
-                <% break %>
-              <% end %>
-            </div>
+      <% if @salon_user.posts.blank? %>
+        <div class="row mt-3">
+          <div class="col-4 mx-auto">
+            <p>投稿がまだありません。</p>
+          </div>
+        </div>
+      <% else %>
+        <div class="salon_user_post_image">
+          <% @salon_user.posts.each do |post| %>
+            <%= link_to post_path(post) do %>
+              <div class="card shadow-lg mr-2 mb-2">
+                <% post.post_images.each do |image| %><br>
+                  <%= attachment_image_tag image, :image, :fill, 200, 200 %>
+                  <% break %>
+                <% end %>
+              </div>
+            <% end %>
           <% end %>
-        <% end %>
-      </div>
+        </div>
+      <% end %>
     </div>
     <div id="tab3" class="tab">
       <table class="table-layout">
