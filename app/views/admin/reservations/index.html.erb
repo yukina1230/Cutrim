@@ -4,14 +4,18 @@
   </div>
   <div class="col-lg-8">
     <span class="title-background">予約一覧</span><br>
-    <% @reservations.each do |reservation| %>
-      <%= link_to admin_reservation_path(reservation) do %>
-        <div class="border mb-2 mt-3">
-          予約ID：<%= reservation.id %>｜
-          予約日：<%= reservation.created_at.strftime("%Y-%m-%d/%H:%M") %>｜
-          来店日時：<%= reservation.day %>/<%= reservation.time %>｜
-          ご予約者様：<%= reservation.user.user_name %>
-        </div>
+    <% if @reservations.blank? %><br>
+      <p>予約はありません。</p>
+    <% else %>
+      <% @reservations.each do |reservation| %>
+        <%= link_to admin_reservation_path(reservation) do %>
+          <div class="border mb-2 mt-3">
+            予約ID：<%= reservation.id %>｜
+            予約日：<%= reservation.created_at.strftime("%Y-%m-%d/%H:%M") %>｜
+            来店日時：<%= reservation.day %>/<%= reservation.time %>｜
+            ご予約者様：<%= reservation.user.user_name %>
+          </div>
+        <% end %>
       <% end %>
     <% end %>
   </div>

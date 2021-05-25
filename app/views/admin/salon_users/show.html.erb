@@ -1,5 +1,5 @@
 <div class="row mt-3 mb-3">
-  <div class="col-3 offset-3">
+  <div class="col-6 offset-3">
     <span class="title-background"><%= @salon_user.salon_name %>様マイページ</span>
   </div>
 </div>
@@ -46,7 +46,7 @@
         </tr>
         <tr>
           <td>営業時間</td>
-          <td><%= @salon_user.business_start_time&.strftime('%H:%M') %><%= @salon_user.business_end_time&.strftime('%H:%M') %></td>
+          <td><%= @salon_user.business_start_time&.strftime('%H:%M') %>~<%= @salon_user.business_end_time&.strftime('%H:%M') %></td>
         </tr>
         <tr>
           <td>メールアドレス</td>

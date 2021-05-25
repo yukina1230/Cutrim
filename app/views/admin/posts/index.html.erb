@@ -5,23 +5,31 @@
     <% end %>
   </div>
 </div>
-<% @posts.each do |post| %>
-  <div class="salon_user-post">
-    <div class="salon_user-post-image">
-      <% post.post_images.each do |image| %>
-        <%= attachment_image_tag image, :image, :fill, 200, 200 %>
-        <% break %>
-      <% end %>
-    </div>
-    <div class="salon_user-post-detail">
-      投稿日： <%= post.created_at.strftime('%Y/%m/%d') %><br>
-      犬種： <%= post.dog_breed %><br>
-      説明： <%= post.caption %><br>
-      写真投稿枚数： <%= post.post_images.count %>枚
-      <div class="salon_user-post-link">
-        <%= link_to '編集', edit_admin_post_path(post), class: "btn btn-info" %>
-        <%= link_to '削除', admin_post_path(post), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn btn-danger" %>
-      </div>
+<% if @posts.blank? %>
+  <div class="row mt-3">
+    <div class="col-4 mx-auto">
+      <p>投稿がまだありません。</p>
     </div>
   </div>
+<% else %>
+  <% @posts.each do |post| %>
+    <div class="salon_user-post">
+      <div class="salon_user-post-image">
+        <% post.post_images.each do |image| %>
+          <%= attachment_image_tag image, :image, :fill, 200, 200 %>
+          <% break %>
+        <% end %>
+      </div>
+      <div class="salon_user-post-detail">
+        投稿日： <%= post.created_at.strftime('%Y/%m/%d') %><br>
+        犬種： <%= post.dog_breed %><br>
+        説明： <%= post.caption %><br>
+        写真投稿枚数： <%= post.post_images.count %>枚
+        <div class="salon_user-post-link">
+          <%= link_to '編集', edit_admin_post_path(post), class: "btn btn-info" %>
+          <%= link_to '削除', admin_post_path(post), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn btn-danger" %>
+        </div>
+      </div>
+    </div>
+  <% end %>
 <% end %>
