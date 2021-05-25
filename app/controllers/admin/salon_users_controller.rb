@@ -35,7 +35,7 @@ class Admin::SalonUsersController < ApplicationController
       :business_start_time,
       :business_end_time,
       :latitude,
-      :longitude,)
+      :longitude)
   end
 
 end

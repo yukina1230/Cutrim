@@ -30,14 +30,10 @@
         <div class="name form-group">
           <label for="reservation_dog_name">ご予約者様</label>
           <input class="form-control" type="text" readonly="true" value="<%= current_user.user_name %>" />
-          <%#= f.label :name, 'ご予約者様' %><br>
-          <%#= f.text_field :name, class: 'form-control', value: current_user.family_name + current_user.first_name, readonly: true %>
         </div>
         <div class="phone form-group">
           <label for="reservation_dog_name">電話番号</label>
           <input class="form-control" type="text" readonly="true" value="<%= current_user.phone %>" />
-          <%#= f.label :phone, '電話番号' %>
-          <%#= f.text_field :phone, class: 'form-control', value: current_user.phone, readonly: true %>
         </div>
         <div class="dog_name form-group">
           <%= f.label :dog_name, 'ペットの名前' %><span class="badge badge-danger">必須</span>
