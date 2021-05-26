@@ -13,7 +13,14 @@ class Admin::RegistrationsController < Devise::RegistrationsController
   # POST /resource
   def create
     super
-    ThanksMailer.send_thanksmail_salonuser(params[:salon_user][:email],params[:salon_user][:salon_name]).deliver
+    @salon_user = SalonUser.new(configure_sign_up_params)
+    if @salon_user.save
+      log_in @salon_user
+      ThanksMailer.send_thanksmail_salonuser(params[:salon_user][:email],params[:salon_user][:salon_name]).deliver
+      redirect_to admin_salon_users_mypage_path
+    else
+      return
+    end
   end
 
   # GET /resource/edit

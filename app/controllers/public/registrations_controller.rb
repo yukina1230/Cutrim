@@ -13,7 +13,14 @@ class Public::RegistrationsController < Devise::RegistrationsController
   # POST /resource
   def create
     super
-    WelcomeMailer.send_when_signup(params[:user][:email],params[:user][:family_name],params[:user][:first_name]).deliver
+    @user = User.new(configure_sign_up_params)
+    if @user.save
+      log_in @user
+      WelcomeMailer.send_when_signup(params[:user][:email],params[:user][:family_name],params[:user][:first_name]).deliver
+      redirect_to mypage_path
+    else
+      return
+    end
   end
 
   # GET /resource/edit
