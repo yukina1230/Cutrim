@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(version: 2021_06_01_055053) do
     t.text "caption"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.decimal "score", precision: 5, scale: 3
+    t.decimal "score", precision: 5, scale: 3, default: "0.0"
   end
 
   create_table "reservation_images", force: :cascade do |t|
