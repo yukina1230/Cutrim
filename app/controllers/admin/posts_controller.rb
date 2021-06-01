@@ -6,6 +6,7 @@ class Admin::PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.salon_user_id = current_salon_user.id
+    @post.score = Language.get_data(post_params[:caption])
     if @post.save
       redirect_to admin_posts_path, notice: '投稿が完了しました。'
     else

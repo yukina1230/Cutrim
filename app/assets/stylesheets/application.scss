@@ -58,6 +58,21 @@
   border-color: #c19aa0;
  }
 
+ .badge-secondary {
+  background-color: #CFB1B5;
+  border-color: #CFB1B5;
+ }
+
+ .badge-info {
+  background-color: #98D4CC;
+  border-color: #98D4CC;
+ }
+
+ .badge-success {
+  background-color: #FFC7AF;
+  border-color: #FFC7AF;
+ }
+
  .table-background {
   background-color: #CFB1B5;
   border-color: #CFB1B5;
@@ -492,6 +507,11 @@ th.table-second {
 .salon_user-post-link {
  float: right;
  padding-right: 10px;
+}
+
+.sentiment-score-range {
+ font-size: 12px;
+ padding-left: 60px;
 }
 
 .post_image-text-size {
