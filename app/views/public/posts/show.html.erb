@@ -18,13 +18,13 @@
           犬種：<%= @post.dog_breed %><br>
           説明：<%= @post.caption %><br>
           <p class="sentiment-score">
-            感情分析スコア
+            感情分析スコア：
             <% if @post.score >= 0.25 %>
-              <%= @post.score %><span class="badge badge-danger">ポジティブ</span>
-            <% elsif @post.score <= 0.25 %>
-              <%= @post.score %><span class="badge badge-danger">ネガティブ</span>
+              <%= @post.score %> <span class="badge badge-secondary">ポジティブ</span>
+            <% elsif @post.score <= -0.25 %>
+              <%= @post.score %> <span class="badge badge-info">ネガティブ</span>
             <% else %>
-              <%= @post.score %><span class="badge badge-danger">ニュートラル</span>
+              <%= @post.score %> <span class="badge badge-success">ニュートラル</span>
             <% end %>
           </p>
           <div>
