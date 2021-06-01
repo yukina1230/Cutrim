@@ -24,6 +24,7 @@ class Admin::PostsController < ApplicationController
 
   def update
     @post = Post.find(params[:id])
+    @post.score = Language.get_data(post_params[:caption])
     if @post.update(post_params)
       redirect_to admin_posts_path, notice: '更新が完了しました。'
     else
