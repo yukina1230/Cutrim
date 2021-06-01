@@ -61,7 +61,7 @@
             感情分析スコア：
             <% if @post.score >= 0.25 %>
               <%= @post.score %> <span class="badge badge-secondary">ポジティブ</span>
-            <% elsif @post.score <= 0.25 %>
+            <% elsif @post.score <= -0.25 %>
               <%= @post.score %> <span class="badge badge-info">ネガティブ</span>
             <% else %>
               <%= @post.score %> <span class="badge badge-success">ニュートラル</span>
