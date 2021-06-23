@@ -15,7 +15,11 @@
           <%= attachment_image_tag reservation.salon_user, :salon_image, :fill, 300, 200, fallback: "no_image.jpg",size:'300x200' %>
         </div>
         <div class="col-lg-5 offset-1">
-          <h4><%= reservation.salon_user.salon_name %></h4>
+          <h4>
+            <%= link_to salon_user_path(@salon_user) do %>
+              <%= reservation.salon_user.salon_name %>
+            <% end %>
+          </h4>
           〠<%= reservation.salon_user.postal_code %><br>
           <%= reservation.salon_user.address %><br>
           来店日時：<%= reservation.day %>/<%= reservation.time %><br>

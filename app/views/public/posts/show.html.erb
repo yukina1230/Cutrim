@@ -3,7 +3,9 @@
     <div class="col-6 offset-3">
       <div class="card mx-auto mt-4 shadow-lg">
         <div class="card-header">
-          <%= @salon_user.salon_name %>
+          <%= link_to salon_user_path(@salon_user) do %>
+            <%= @salon_user.salon_name %>
+          <% end %>
         </div>
         <div id="slider">
           <% @post.post_images.each do |image| %>
@@ -45,7 +47,9 @@
       <% end %>
       <div class="card mx-auto mt-4 shadow-lg">
         <div class="card-header">
-          <%= @salon_user.salon_name %>
+          <%= link_to salon_user_path(@salon_user) do %>
+            <%= @salon_user.salon_name %>
+          <% end %>
         </div>
         <div id="slider">
           <% @post.post_images.each do |image| %>

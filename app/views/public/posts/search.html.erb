@@ -10,9 +10,13 @@
     </div>
   </div>
 </div>
-<div class="row">
-  <div class="col-6 offset-5">
-    <span class="title-background"><%= @search %>の検索結果</span>
+<% if @posts.exists? %>
+  <div class="row">
+    <div class="col-6 offset-5">
+      <span class="title-background"><%= @search %>の検索結果</span>
+    </div>
   </div>
-</div>
-<%= render 'index', posts: @posts %>
+  <%= render 'index', posts: @posts %>
+<% else %>
+  <p class="text-center h4"><%= @search %>の投稿はありません。</p>
+<% end %>
